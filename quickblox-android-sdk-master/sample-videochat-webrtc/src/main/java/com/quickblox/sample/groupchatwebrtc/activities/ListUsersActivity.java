@@ -31,8 +31,6 @@ import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.fabric.sdk.android.Fabric;
@@ -52,6 +50,9 @@ public class ListUsersActivity extends Activity {
     private static QBChatService chatService;
     private static ArrayList<QBUser> users = new ArrayList<>();
     private volatile boolean resultReceived = true;
+
+    private String address = null;
+    private String default_password = "tomtarna";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,14 @@ public class ListUsersActivity extends Activity {
         QBChatService.setDefaultAutoSendPresenceInterval(60); //seconds
         chatService = QBChatService.getInstance();
 
+        WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        WifiInfo info = manager.getConnectionInfo();
+        address = info.getMacAddress();
+
+        if (address == null) {
+            address = "40:b8:37:f5:XX:XX";
+        }
+
         createAppSession();
     }
 
@@ -83,7 +92,7 @@ public class ListUsersActivity extends Activity {
             @Override
             public void onSuccess(QBSession qbSession, Bundle bundle) {
                 showProgress(false);
-                loadUsers();
+                automaticLogin();
             }
 
 
@@ -200,28 +209,18 @@ public class ListUsersActivity extends Activity {
         usersList.setOnItemClickListener(clicklistener);
     }
 
-    private void loadUsers() {
-        loadUsers(getString(R.string.users_tag));
-    }
-
-    private void loadUsers(String tag) {
+    private void automaticLogin() {
         showProgress(true);
 
         final QBPagedRequestBuilder requestBuilder = new QBPagedRequestBuilder();
         requestBuilder.setPerPage(getResources().getInteger(R.integer.users_count));
-        List<String> tags = new LinkedList<>();
-        tags.add(tag);
 
-        WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = manager.getConnectionInfo();
-        String address = info.getMacAddress();
-
-        QBUsers.getUserByLogin("fake1", new QBEntityCallback<QBUser>() {
+        QBUsers.getUserByLogin(address, new QBEntityCallback<QBUser>() {
             @Override
             public void onSuccess(QBUser qbUser, Bundle bundle) {
                 showProgress(false);
 
-                createSession("fake1", "tomtarna");
+                createSession(address, default_password);
 
                 QBUsers.getUsers(requestBuilder, new QBEntityCallback<ArrayList<QBUser>>() {
                     @Override
@@ -246,58 +245,32 @@ public class ListUsersActivity extends Activity {
 
             @Override
             public void onError(QBResponseException exc) {
+                // User did not exist, create it automatically.
                 showProgress(false);
 
                 if(exc.getHttpStatusCode() == 404) {
                     signUp();
                 }
-
-                Toaster.shortToast("Error while loading users");
-                Log.d(TAG, exc.getMessage());
-                Log.d(TAG, "onError()");
             }
-            });
-
-        /*QBUsers.getUsersByTags(tags, requestBuilder, new QBEntityCallback<ArrayList<QBUser>>() {
-            @Override
-            public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
-                showProgress(false);
-
-                users.clear();
-                users.addAll(DataHolder.createUsersList(qbUsers));
-                initUsersList();
-            }
-
-            @Override
-            public void onError(QBResponseException exc) {
-                showProgress(false);
-
-                Toaster.shortToast("Error while loading users");
-                Log.d(TAG, exc.getMessage());
-                Log.d(TAG, "onError()");
-            }
-        });*/
+        });
     }
 
     public void signUp() {
-        // TODO: Change to MAC address instead.
-        String login = "fake1";
-        String password = "tomtarna";
-        String confirmPassword = password;
-
         QBUser qbUser = new QBUser();
-        qbUser.setLogin(login);
-        qbUser.setPassword(password);
+        qbUser.setLogin(address);
+        qbUser.setFullName(address);
+        qbUser.setPassword(default_password);
+
         QBUsers.signUpSignInTask(qbUser, new QBEntityCallback<QBUser>() {
             @Override
             public void onSuccess(QBUser qbUser, Bundle bundle) {
-                createSession(currentUser.getLogin(), currentUser.getPassword());
-                //finish();
+                createSession(address, default_password);
+                finish();
             }
 
             @Override
             public void onError(QBResponseException error) {
-                Log.d(TAG, "Should not happen.");
+                Log.d(TAG, "Couldnt sign up new user..");
             }
         });
     }

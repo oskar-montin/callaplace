@@ -4,39 +4,29 @@
     api-level="22"
     density="420dpi"
     format="7"
-    timestamp="69601069845441" >
+    timestamp="72438076593439" >
 
     <task
         name="javac"
-        duration="1511" />
+        duration="3092" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="82" />
+        duration="970" />
     <task
         name="verifier"
-        duration="5" />
+        duration="171" />
 
     <artifact
-        location="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/5/slice_5/classes.dex"
-        type="DEX" />
+        location="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/outputs/apk/sample-videochat-webrtc-debug-20160514-code-1-version-1.0.apk"
+        type="MAIN" />
 
-    <build timestamp="66914884801786" >
+    <build timestamp="72438076593439" >
         <artifact
             location="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/outputs/apk/sample-videochat-webrtc-debug-20160514-code-1-version-1.0.apk"
             type="MAIN" />
-    </build>
-    <build timestamp="69307191588553" >
-        <artifact
-            location="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/resources-dev-debug.ap_"
-            type="RESOURCES" />
-    </build>
-    <build timestamp="69601069845441" >
-        <artifact
-            location="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/5/slice_5/classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

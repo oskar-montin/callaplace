@@ -1,13 +1,5 @@
 [
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/menu/menu_video_chat.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/menu/menu_video_chat.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/menu/fragment_opponents.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/menu/fragment_opponents.xml"
-    },
-    {
         "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/menu/menu_video_chat.xml",
         "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/menu/menu_video_chat.xml"
     },

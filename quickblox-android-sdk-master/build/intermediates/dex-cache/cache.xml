@@ -1,2 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-core/2.5.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="26fbca97bed061e703ec4584abaebf2111f685b4">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.quickblox-quickblox-android-sdk-core-2.5.2_0bab384dc6611d9f686d5068e8f15f2a73d2db99/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/libs/smack-experimental-4.1.6-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a5341f1822305a3f40044c99cec4c2ed6308af21">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/smack-experimental-4.1.6-SNAPSHOT_7964d8ce167e9295ac482b7595fb6b141a6a9d03/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/libs/smack-sasl-provided-4.1.6-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f220779c6cb13d70eaa846fc73c9d9116e60924e">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/smack-sasl-provided-4.1.6-SNAPSHOT_f3013ee22251d1e7c33a08896881b8fad974d38d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/incremental-classes/dev/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e2956712842104506730065672d84ed68fcccded">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/instant-run-bootstrap_8544d2de17bc566bedf59bf3bde9c86c6bd65888/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-core/2.5.2/jars/libs/qb-gson2.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="86c325c2ed05966d8ae97da00a53e19039d254d3">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/qb-gson2.2.1_39b2abeb215ac6cbd4c46d0486a1d03cc7bfead8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.crashlytics.sdk.android/beta/1.1.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="0d6546c1c73cb64a6907f694e6c4bf4b50fefa70">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.crashlytics.sdk.android-beta-1.1.2_3287c7009f7b6eccbec6fa3076fa21e31deffcff/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-videochat-webrtc/2.5.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="aad3d9117e5afb20531cad3a00f754ea5e7817e1">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.quickblox-quickblox-android-sdk-videochat-webrtc-2.5.2_caf22615f01a0765d83d3510f5c56f4a693efcd8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="0a4af6a85230b990eb8690b696d2db9247338611">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/io.fabric.sdk.android-fabric-1.2.0_ab2bf90c6612d85901ef1dcd204c340c6d2c5c08/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics/2.2.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1014d409d1af641616ca7a2b3fda549cf559d605">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.crashlytics.sdk.android-crashlytics-2.2.2_b5360e45151fad0a0c605349d9d60e46a5952981/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.android.support-appcompat-v7-23.1.1_e203d0d26a3b5868650cecd930a1e2fd21091714/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.android.support-support-v4-23.1.1_52b7fbbbf5834a033b447a778a55c6b514106f06/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/support-annotations-23.1.1_87071a4aaa2b77da59d563030b088bd3f02c7505/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.google.android.gms-play-services-base-8.4.0_1164b5bf34a832e45fdd7a5e596529d941f5868a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/libs/smack-android-4.1.6-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1f860ad2f02e9873778f9e66d72461bbfca7d88d">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/smack-android-4.1.6-SNAPSHOT_d40f0e5b591a598867616b8f39d77a1210454409/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/libs/smack-core-4.1.6-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="7af3acbbd430206aca3bd3ea232cd27699d8279b">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/smack-core-4.1.6-SNAPSHOT_c15b86f72409cc1044379aa144b6e6e520fffb35/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/libs/smack-im-4.1.6-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="20ac7f5f5340af1c194012923bd874fdd695d3c8">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/smack-im-4.1.6-SNAPSHOT_07d5d1c39ca33555206740d47fac2bb1251d6ce3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-messages/2.5.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b768fc64d582cf4afe8a9f43f1fda9b5922d7a6a">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.quickblox-quickblox-android-sdk-messages-2.5.2_ee3a4a055df4bdaccc0dafdf03c408a8a9836dbd/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/incremental-runtime-classes/dev/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="c3a6bd5990c1369158a946118ffcffdbfbefa91c">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/instant-run_197e1e8c1a517ac987e05030380267cf22c8cf7a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/libs/smack-resolver-minidns-4.1.6-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="412949e2e7755c429817c83b8118619e6bb4dda6">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/smack-resolver-minidns-4.1.6-SNAPSHOT_38b6d23f7b8bd3e97f37c0afa3e64708a5b82d50/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.github.johnkil.android-robototextview/robototextview/2.4.3/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e1829075f121125e51fe052b94e3998c9b9aac28">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.github.johnkil.android-robototextview-robototextview-2.4.3_ef4a3b49e44cc82a4f678a1fefc9c9eec8e6a767/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/.gradle/caches/modules-2/files-2.1/org.jxmpp/jxmpp-core/0.4.2/a4c8ce09be6ec90479be74290e381de4288c9569/jxmpp-core-0.4.2.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a4c8ce09be6ec90479be74290e381de4288c9569">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/jxmpp-core-0.4.2_e5a261868c5ca9f8225b372061d937e8a3148d3f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.google.android.gms-play-services-basement-8.4.0_5467929b96abb38730cde046f81567bc1889dba9/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/libs/smack-extensions-4.1.6-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="2b72a2517cc7f341032b45d95a60cf177932ab5c">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/smack-extensions-4.1.6-SNAPSHOT_85de996ddd90a7a7d72baf505e510f4f0cd8f42c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.android.support-design-23.1.1_64f61eafec3383a063c264238c6c94a9ec3468d3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.google.android.gms-play-services-gcm-8.4.0_1ac1eaa646db1f3e61b8c6e5b131d5921b1b54a1/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/.gradle/caches/modules-2/files-2.1/org.jxmpp/jxmpp-util-cache/0.4.2/4aa590f2a44d49444dcd3bb082017bf0b46f2ff7/jxmpp-util-cache-0.4.2.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4aa590f2a44d49444dcd3bb082017bf0b46f2ff7">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/jxmpp-util-cache-0.4.2_614182b190ecf16c1d387f56702b0bbe1e127e02/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-videochat-webrtc/2.5.2/jars/libs/libjingle_peerconnection.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6cffa3f26852e7f0259d01a3b2be2f540d6af1d7">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/libjingle_peerconnection_d24e5661dcaa95e6540ce68548907719d2ddcc01/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="40f3be2288f69ac971ad9a51edb70343ea662e6a">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.quickblox-quickblox-android-sdk-chat-2.5.2_6459a9a4f554141d293ea37254a36409ecc5a9b3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.android.support-recyclerview-v7-23.1.1_9afd7f7afbfc6c6d50348dd6474886dacd246389/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8c4cd25e87bb7fa8fa1b4948505cd69a70a8b3e1">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.navercorp.pulltorefresh-library-3.2.3_fe76a4366fb2b1c978f106cb29c15dcca42d6b75/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/.gradle/caches/modules-2/files-2.1/de.measite.minidns/minidns/0.1.7/993582d1455b93a5723d2af4b39d8679735b3550/minidns-0.1.7.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="993582d1455b93a5723d2af4b39d8679735b3550">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/minidns-0.1.7_601e63af7d325967b12d8198af2a94459044d057/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.crashlytics.sdk.android/answers/1.1.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="158555fbeff80e5a85464a818eadda8a448a1051">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.crashlytics.sdk.android-answers-1.1.2_b618cc37c0939c60d5134476691f677e19a427da/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/com.google.android.gms-play-services-measurement-8.4.0_dd813359e2bd36566ec7fb8343d4523c88ae8a60/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/internal_impl-23.1.1_4c8ef8934460886f27a9c0d1b169ac346ff42860/classes.dex" />
+    </item>
+    <item
+        jar="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-chat/2.5.2/jars/libs/smack-tcp-4.1.6-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="c1b30d3954d8e92fe7ed2fa244bbf66b9cc58ad1">
+        <dex dex="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/10/smack-tcp-4.1.6-SNAPSHOT_1f837006cf18d1cbf6c11e4852bb19290152826e/classes.dex" />
+    </item>
+
+</items>
