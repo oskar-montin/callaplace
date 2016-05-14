@@ -51,7 +51,7 @@
         android:layout_height="match_parent" />
 
     <LinearLayout
-        android:id="@+id/design_bottom_sheet"
+        android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -147,7 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="bottom|right|end"
-        app:layout_anchor="@id/design_bottom_sheet"
+        app:layout_anchor="@id/bottom_sheet"
         app:layout_anchorGravity="top|right|end"
         android:src="@drawable/ic_call_black_24dp"
         android:tint="@color/colorWhite"/>
