@@ -4,28 +4,60 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/xmlresponse.xml"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/servers.json",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/src/main/res/raw/servers.json"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/amazaonerror.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/amazaonerror.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/tw__cacerts",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.0/res/raw/tw__cacerts"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/sample_file.txt",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/src/main/res/raw/sample_file.txt"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/sample_file.txt",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/src/main/res/raw/sample_file.txt"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/file.txt",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/file.txt"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/kharkov.jpg",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/src/main/res/raw/kharkov.jpg"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/tw__cacerts",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.0/res/raw/tw__cacerts"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/sample_file2.txt",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/src/main/res/raw/sample_file2.txt"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/xmlresponse.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/xmlresponse.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/kharkov.jpg",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/src/main/res/raw/kharkov.jpg"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/amazaonerror.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/amazaonerror.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/sample_file2.txt",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/src/main/res/raw/sample_file2.txt"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/file.txt",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/file.txt"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/servers.json",
@@ -34,5 +66,9 @@
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/image.png",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/image.png"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/raw/image.png",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/image.png"
     }
 ]

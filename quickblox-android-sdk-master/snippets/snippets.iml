@@ -42,6 +42,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/offlineDevDebug/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/offlineDevDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/offlineDevDebug/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/offlineDev/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/offlineDev/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/offlineDev/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/offlineDev/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/offlineDev/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/offlineDev/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testOfflineDevDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testOfflineDevDebug/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testOfflineDevDebug/assets" type="java-test-resource" />
@@ -50,12 +56,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testOfflineDevDebug/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testOfflineDevDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testOfflineDevDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/offlineDev/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/offlineDev/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/offlineDev/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/offlineDev/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/offlineDev/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/offlineDev/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/offlineDev/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/offlineDev/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/offlineDev/assets" type="java-resource" />
@@ -104,14 +104,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
@@ -120,6 +112,14 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
@@ -140,8 +140,8 @@
     <orderEntry type="library" exported="" name="quickblox-android-sdk-customobjects-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="quickblox-android-sdk-content-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="digits-1.9.0" level="project" />
-    <orderEntry type="library" exported="" name="minidns-0.1.7" level="project" />
     <orderEntry type="library" exported="" name="retrofit-1.8.0" level="project" />
+    <orderEntry type="library" exported="" name="minidns-0.1.7" level="project" />
     <orderEntry type="library" exported="" name="jxmpp-util-cache-0.4.2" level="project" />
     <orderEntry type="library" exported="" name="quickblox-android-sdk-location-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="twitter-core-1.6.0" level="project" />

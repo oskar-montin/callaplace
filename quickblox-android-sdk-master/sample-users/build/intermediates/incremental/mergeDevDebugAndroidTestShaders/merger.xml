@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-users/src/androidTest/shaders"/></dataSet><dataSet config="dev"><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-users/src/androidTestDev/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-users/src/androidTest/shaders"/></dataSet><dataSet config="dev"><source path="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-users/src/androidTestDev/shaders"/></dataSet></merger>

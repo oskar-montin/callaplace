@@ -4,6 +4,14 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     }

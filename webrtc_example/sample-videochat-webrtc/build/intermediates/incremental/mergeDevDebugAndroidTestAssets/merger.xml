@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/androidTest/assets"/><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/generated/assets/shaders/androidTest/dev/debug"/></dataSet><dataSet config="dev"><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/androidTestDev/assets"/></dataSet></merger>

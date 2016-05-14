@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-core/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-core/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-core/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-core/src/release/jniLibs"/></dataSet></merger>

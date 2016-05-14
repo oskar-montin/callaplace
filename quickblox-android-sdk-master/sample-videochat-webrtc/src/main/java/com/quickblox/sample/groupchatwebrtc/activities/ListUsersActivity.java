@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.net.wifi.WifiManager;
+import android.net.wifi.WifiInfo;
 
 import com.crashlytics.android.Crashlytics;
 import com.quickblox.auth.QBAuth;
@@ -205,12 +207,58 @@ public class ListUsersActivity extends Activity {
     private void loadUsers(String tag) {
         showProgress(true);
 
-        QBPagedRequestBuilder requestBuilder = new QBPagedRequestBuilder();
+        final QBPagedRequestBuilder requestBuilder = new QBPagedRequestBuilder();
         requestBuilder.setPerPage(getResources().getInteger(R.integer.users_count));
         List<String> tags = new LinkedList<>();
         tags.add(tag);
 
-        QBUsers.getUsersByTags(tags, requestBuilder, new QBEntityCallback<ArrayList<QBUser>>() {
+        WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        WifiInfo info = manager.getConnectionInfo();
+        String address = info.getMacAddress();
+
+        QBUsers.getUserByLogin("fake1", new QBEntityCallback<QBUser>() {
+            @Override
+            public void onSuccess(QBUser qbUser, Bundle bundle) {
+                showProgress(false);
+
+                createSession("fake1", "tomtarna");
+
+                QBUsers.getUsers(requestBuilder, new QBEntityCallback<ArrayList<QBUser>>() {
+                    @Override
+                    public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
+                        showProgress(false);
+
+                        users.clear();
+                        users.addAll(DataHolder.createUsersList(qbUsers));
+                        initUsersList();
+                    }
+
+                    @Override
+                    public void onError(QBResponseException exc) {
+                        showProgress(false);
+
+                        Toaster.shortToast("Error while loading users");
+                        Log.d(TAG, exc.getMessage());
+                        Log.d(TAG, "onError()");
+                    }
+                });
+            }
+
+            @Override
+            public void onError(QBResponseException exc) {
+                showProgress(false);
+
+                if(exc.getHttpStatusCode() == 404) {
+                    signUp();
+                }
+
+                Toaster.shortToast("Error while loading users");
+                Log.d(TAG, exc.getMessage());
+                Log.d(TAG, "onError()");
+            }
+            });
+
+        /*QBUsers.getUsersByTags(tags, requestBuilder, new QBEntityCallback<ArrayList<QBUser>>() {
             @Override
             public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
                 showProgress(false);
@@ -227,6 +275,29 @@ public class ListUsersActivity extends Activity {
                 Toaster.shortToast("Error while loading users");
                 Log.d(TAG, exc.getMessage());
                 Log.d(TAG, "onError()");
+            }
+        });*/
+    }
+
+    public void signUp() {
+        // TODO: Change to MAC address instead.
+        String login = "fake1";
+        String password = "tomtarna";
+        String confirmPassword = password;
+
+        QBUser qbUser = new QBUser();
+        qbUser.setLogin(login);
+        qbUser.setPassword(password);
+        QBUsers.signUpSignInTask(qbUser, new QBEntityCallback<QBUser>() {
+            @Override
+            public void onSuccess(QBUser qbUser, Bundle bundle) {
+                createSession(currentUser.getLogin(), currentUser.getPassword());
+                //finish();
+            }
+
+            @Override
+            public void onError(QBResponseException error) {
+                Log.d(TAG, "Should not happen.");
             }
         });
     }

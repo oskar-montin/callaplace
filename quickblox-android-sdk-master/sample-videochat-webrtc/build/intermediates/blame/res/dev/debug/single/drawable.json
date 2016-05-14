@@ -1,23 +1,35 @@
 [
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_mauveine.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_mauveine.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_list_selector_holo_light.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/design_fab_background.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/drawable/design_fab_background.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_mauveine.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_mauveine.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_borderless_material.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_borderless_material.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_blue_krayola.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_blue_krayola.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/progress_indeterminate_horizontal_holo.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/progress_indeterminate_horizontal_holo.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_dialog_material_background_dark.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_dialog_material_background_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_dialog_material_background_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/progress_horizontal_holo_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/progress_horizontal_holo_light.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_red.xml",
@@ -32,6 +44,10 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_switch_camera.xml"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_mauveine.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_mauveine.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_orange.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_orange.xml"
     },
@@ -40,16 +56,36 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_blue_green.xml"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_blue_green.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_blue_green.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_textfield_search_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_pink.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_pink.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_water_bondi_beach.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_water_bondi_beach.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_gentianaceae_blue.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_gentianaceae_blue.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_dynamic_sm.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_dynamic_sm.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_spring_bud.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_spring_bud.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_dynamic_sm.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_dynamic_sm.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_spring_bud.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_spring_bud.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_mauveine.xml",
@@ -64,28 +100,16 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/indicator_bg_bottom.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_user_camera_off.png",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_user_camera_off.png"
-    },
-    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_icon_light.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_light.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_may_green.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_may_green.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_white_green.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_white_green.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_default_mtrl_shape.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_default_mtrl_shape.xml"
-    },
-    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_edit_text_material.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_list_selector_holo_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_blue_green.xml",
@@ -96,72 +120,100 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_dark.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_blue.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_blue.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_orange.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_orange.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_ratingbar_full_material.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_ratingbar_full_material.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/indicator_bg_bottom.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/indicator_bg_bottom.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_blue.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_blue.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_water_bondi_beach.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_water_bondi_beach.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_textfield_search_material.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_textfield_search_material.xml"
-    },
-    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_seekbar_thumb_material.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/design_snackbar_background.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/drawable/design_snackbar_background.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_google_signin_btn_icon_light.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_light.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/btn_background_call_take.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/btn_background_call_take.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_white_green.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_white_green.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_text_cursor_material.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_text_cursor_material.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_google_signin_btn_icon_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_dark.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_water_bondi_beach.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_water_bondi_beach.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_may_green.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_may_green.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_user_camera_off.png",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_user_camera_off.png"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_blue.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_blue.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_lime.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_lime.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_check_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_text_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_dark.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_cab_background_top_material.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_cab_background_top_material.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_switch_thumb_material.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_switch_thumb_material.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_ratingbar_full_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_ratingbar_full_material.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/indicator_bg_top.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/indicator_bg_top.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_white_blue.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_white_blue.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/btn_background_call_end.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/btn_background_call_end.xml"
-    },
-    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/progress_horizontal_holo_light_right.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/progress_horizontal_holo_light_right.xml"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_radio_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_gentianaceae_blue.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_gentianaceae_blue.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_seekbar_track_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_text_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_item_background_holo_light.xml",
@@ -176,16 +228,16 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_noavatar.png",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_noavatar.png"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_icon_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/indicator_bg_top.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/indicator_bg_top.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_text_light.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_check_material.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_check_material.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_text_dark.xml",
@@ -196,12 +248,20 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_mic.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/progress_horizontal_holo_light.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/progress_horizontal_holo_light.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/btn_background_call_end.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/btn_background_call_end.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_dynamic.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_dynamic.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_dynamic.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_dynamic.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_dynamic_sm.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_dynamic_sm.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_seekbar_track_material.xml",
@@ -224,12 +284,8 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_orange.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_colored_material.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_spinner_textfield_background_material.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_mic.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_mic.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_coral.xml",
@@ -238,6 +294,258 @@
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_list_selector_holo_dark.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_blue_krayola.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_blue_krayola.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_colored_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_blue_green.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_blue_green.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_camera.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_camera.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_icon_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/design_fab_background.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_green.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_green.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_coral.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_coral.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_blue_krayola.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_blue_krayola.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_switch_camera.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_switch_camera.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_edit_text_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_borderless_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_coral.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_coral.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_blue_krayola.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_blue_krayola.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_water_bondi_beach.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_water_bondi_beach.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_item_background_holo_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_spring_bud.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_spring_bud.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_google_signin_btn_icon_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_pink.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_pink.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/progress_horizontal_holo_light_right.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/progress_horizontal_holo_light_right.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_red.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_red.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_coral.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_coral.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_user_camera_off.png",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_user_camera_off.png"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_may_green.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_may_green.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_white_green.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_white_green.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_cab_background_top_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_camera.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_camera.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/btn_background_call_take.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/btn_background_call_take.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_borderless_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_blue.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_blue.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_ratingbar_full_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_ratingbar_full_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_water_bondi_beach.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_water_bondi_beach.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_textfield_search_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/btn_background_call_take.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/btn_background_call_take.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_water_bondi_beach.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_water_bondi_beach.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_blue_krayola.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_blue_krayola.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/indicator_bg_top.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/indicator_bg_top.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_blue.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_blue.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_orange.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_orange.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/btn_background_call_end.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/btn_background_call_end.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_tab_indicator_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_icon_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_lime.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_lime.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_noavatar.png",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_noavatar.png"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_check_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/progress_horizontal_holo_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/progress_horizontal_holo_light.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_green.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_green.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_colored_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_google_signin_btn_text_light.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_lime.xml",
@@ -256,36 +564,24 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.3/res/drawable/progress_indeterminate_horizontal_holo.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_blue_krayola.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_blue_krayola.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_dialog_material_background_dark.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_dialog_material_background_dark.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_btn_radio_material.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_btn_radio_material.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_toggle_camera.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_toggle_camera.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/common_plus_signin_btn_icon_dark.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_dark.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/design_fab_background.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/drawable/design_fab_background.xml"
-    },
-    {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_green.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/rectangle_rounded_green.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_gentianaceae_blue.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_gentianaceae_blue.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/abc_tab_indicator_material.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_tab_indicator_material.xml"
     },
     {
-        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/shape_oval_coral.xml",
-        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/shape_oval_coral.xml"
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/ic_noavatar.png",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-videochat-webrtc/src/main/res/drawable/ic_noavatar.png"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/merged/dev/debug/drawable/rectangle_rounded_gentianaceae_blue.xml",

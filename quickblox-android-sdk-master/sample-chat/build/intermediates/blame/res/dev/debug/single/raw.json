@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-chat/build/intermediates/res/merged/dev/debug/raw/amazaonerror.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-chat/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/amazaonerror.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-chat/build/intermediates/res/merged/dev/debug/raw/xmlresponse.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-chat/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/xmlresponse.xml"
     },
@@ -8,8 +12,20 @@
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-chat/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/file.txt"
     },
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-chat/build/intermediates/res/merged/dev/debug/raw/image.png",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-chat/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/image.png"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-chat/build/intermediates/res/merged/dev/debug/raw/amazaonerror.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-chat/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/amazaonerror.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-chat/build/intermediates/res/merged/dev/debug/raw/xmlresponse.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-chat/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/xmlresponse.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-chat/build/intermediates/res/merged/dev/debug/raw/file.txt",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-chat/build/intermediates/exploded-aar/com.quickblox/quickblox-android-sdk-content/2.5.2/res/raw/file.txt"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-chat/build/intermediates/res/merged/dev/debug/raw/image.png",

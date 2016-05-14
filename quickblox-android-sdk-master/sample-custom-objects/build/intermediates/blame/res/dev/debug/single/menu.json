@@ -1,7 +1,15 @@
 [
     {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-custom-objects/build/intermediates/res/merged/dev/debug/menu/activity_movies_list.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-custom-objects/src/main/res/menu/activity_movies_list.xml"
+    },
+    {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-custom-objects/build/intermediates/res/merged/dev/debug/menu/activity_add_movie.xml",
         "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-custom-objects/src/main/res/menu/activity_add_movie.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-custom-objects/build/intermediates/res/merged/dev/debug/menu/activity_add_movie.xml",
+        "source": "/Users/gustavmortberg/Developer/android/callaplace/quickblox-android-sdk-master/sample-custom-objects/src/main/res/menu/activity_add_movie.xml"
     },
     {
         "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-custom-objects/build/intermediates/res/merged/dev/debug/menu/activity_movies_list.xml",
