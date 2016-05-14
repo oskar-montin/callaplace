@@ -40,10 +40,31 @@ public class MainActivity extends AppCompatActivity implements
         setupBottomSheet();
         setupTabIconTints();
 
+
+        final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        int i = tabs.getSelectedTabPosition();
+        switch (i){
+            case 0:
+                showFavourites();
+                break;
+            case 1:
+                showCallHistory();
+                break;
+        }
+
+
         // Initialize map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+    }
+
+    private void showCallHistory() {
+
+    }
+
+    private void showFavourites() {
 
     }
 
