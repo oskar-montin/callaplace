@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="22"
+    density="420dpi"
+    format="7"
+    timestamp="65777705861348" >
+
+    <task
+        name="javac"
+        duration="1250" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="21" />
+    <task
+        name="verifier"
+        duration="2" />
+
+    <artifact
+        location="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/5/slice_8/classes.dex"
+        type="DEX" />
+
+    <build timestamp="64533610329224" >
+        <artifact
+            location="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/outputs/apk/sample-videochat-webrtc-debug-20160514-code-1-version-1.0.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="65087208196978" >
+        <artifact
+            location="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/res/resources-dev-debug.ap_"
+            type="RESOURCES" />
+    </build>
+    <build timestamp="65641540579795" >
+        <artifact
+            location="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/5/slice_5/classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="65777705861348" >
+        <artifact
+            location="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/sample-videochat-webrtc/build/intermediates/transforms/dex/dev/debug/folders/1000/5/slice_8/classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>
