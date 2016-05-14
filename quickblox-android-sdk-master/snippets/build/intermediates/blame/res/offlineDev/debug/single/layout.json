@@ -1,0 +1,246 @@
+[
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/notification_template_lines.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_lines.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/dgts__country_row.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.0/res/layout/dgts__country_row.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/dgts__state_button.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.0/res/layout/dgts__state_button.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_select_dialog_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/notification_template_media.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_action_mode_bar.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_search_view.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_navigation_item.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/dgts__activity_pin_code.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.0/res/layout/dgts__activity_pin_code.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_navigation_menu.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_dialog_title_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/snippets_list.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/src/main/res/layout/snippets_list.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/select_dialog_item_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_screen_content_include.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/list_item.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/src/main/res/layout/list_item.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/dgts__activity_confirmation.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.0/res/layout/dgts__activity_confirmation.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/dgts__activity_phone_number.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.0/res/layout/dgts__activity_phone_number.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_screen_simple.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/tw__activity_share_email.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.0/res/layout/tw__activity_share_email.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_layout_tab_text.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/dgts__activity_failure.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.0/res/layout/dgts__activity_failure.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_screen_toolbar.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/notification_media_cancel_action.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/notification_media_action.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/notification_template_big_media.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/notification_template_big_media_narrow.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_action_menu_layout.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/activity_splash.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/quickblox-android-sdk-master/sample-core/unspecified/res/layout/activity_splash.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_list_menu_item_layout.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/tw__activity_oauth.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.0/res/layout/tw__activity_oauth.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/dgts__activity_contacts.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.0/res/layout/dgts__activity_contacts.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/main.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/src/main/res/layout/main.xml"
+    },
+    {
+        "merged": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/res/merged/offlineDev/debug/layout/design_navigation_menu_item.xml",
+        "source": "/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_navigation_menu_item.xml"
+    }
+]

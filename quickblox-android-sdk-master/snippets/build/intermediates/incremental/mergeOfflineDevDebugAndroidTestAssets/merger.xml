@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/src/androidTest/assets"/><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/build/generated/assets/shaders/androidTest/offlineDev/debug"/></dataSet><dataSet config="offlineDev"><source path="/Users/gustavmortberg/Developer/android/quickblox-android-sdk-master/snippets/src/androidTestOfflineDev/assets"/></dataSet></merger>
