@@ -2,33 +2,31 @@ package com.callaplace.call_a_place;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,16 +35,22 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -63,16 +67,45 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity implements
         TabLayout.OnTabSelectedListener,
-        OnMapReadyCallback, GoogleMap.OnMapClickListener,
+        OnMapReadyCallback,
+        GoogleMap.OnMapClickListener,
+        GoogleMap.OnMapLongClickListener,
         GoogleMap.OnMarkerClickListener,
-        LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+        GoogleMap.OnMarkerDragListener,
+        com.google.android.gms.location.LocationListener,
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener {
+
+    private static String DEFAULT_FAVOURITES = "[" +
+            "{'loc':[47,20]}," +
+            "{'loc':[57,13],'title':'My favourite'}]";
+    private static String DEFAULT_CALLHISTORY = "[" +
+            "{'type':'INCOMING','loc':[19,6]}," +
+            "{'type':'OUTGOING','loc':[50,15],'title':'My friend'}," +
+            "{'type':'MISSED','loc':[42,11]}]";
+
+    /*private static LatLng[] FAVOURITES = new LatLng[]{
+            new LatLng(47, 20), new LatLng(57, 13)
+    };
+    private static LatLng[] HISTORY = new LatLng[]{
+            new LatLng(19, 6), new LatLng(50, 15),
+    };*/
+
+
+    private enum CallType { INCOMING, OUTGOING, MISSED };
 
     private GoogleMap mMap;
 
+    private TabLayout mTabs;
     private FloatingActionButton mFab;
+
+    private BottomSheetBehavior mBorromSheetBehavior;
+    private TextView mBorromSheetTitle;
+    private TextView mBorromSheetLocation;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -80,17 +113,10 @@ public class MainActivity extends AppCompatActivity implements
      */
     private GoogleApiClient client;
 
-
-    private static LatLng[] FAVOURITES = new LatLng[]{
-            new LatLng(47, 20), new LatLng(57, 13)
-    };
-    private static LatLng[] HISTORY = new LatLng[]{
-            new LatLng(19, 6), new LatLng(50, 15),
-    };
-
     private List<Marker> mFavourites = new ArrayList<Marker>();
     private List<Marker> mCallHistory = new ArrayList<Marker>();
-    private Marker lastMarker;
+
+    private Marker mCurrentMaker;
 
 
     // Backend team
@@ -103,35 +129,22 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFab = (FloatingActionButton) findViewById(R.id.fab);
-
-        mFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                longitude = lastMarker.getPosition().longitude;
-                latitude = lastMarker.getPosition().latitude;
-                new getLocations().execute("http://angseus.ninja:3000");
-            }
-        });
-
-        setupBottomSheet();
-        setupTabIconTints();
-
-        final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        tabs.setOnTabSelectedListener(this);
-
         // Initialize map
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        final SupportMapFragment mapFragment = (SupportMapFragment)
+                getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        // check if you are connected or not
-        if (isConnected()) {
-            //tvIsConnected.setBackgroundColor(0xFF00CC00);
-            //tvIsConnected.setText("You are conncted");
-        } else {
-            //tvIsConnected.setText("You are NOT conncted");
-        }
+        mTabs = (TabLayout) findViewById(R.id.tabLayout);
+        mFab = (FloatingActionButton) findViewById(R.id.fab);
+
+        final LinearLayout bottomSheet = (LinearLayout) findViewById(R.id.bottomSheet);
+        mBorromSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        mBorromSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
+        mBorromSheetTitle = (TextView) bottomSheet.findViewById(R.id.titleTextView);
+        mBorromSheetLocation = (TextView) bottomSheet.findViewById(R.id.locationTextView);
+
+        mTabs.setOnTabSelectedListener(this);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -142,119 +155,178 @@ public class MainActivity extends AppCompatActivity implements
                 .addApi(AppIndex.API)
                 .build();
 
-        //ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        //ActivityCompat.requestPermissions(this, new String[]{
+        // Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+    }
+
+    private void loadSavedData() throws JSONException {
+        if (mMap == null)
+            throw new IllegalStateException("Map not initialized");
+        SharedPreferences prefs = getPreferences(0);
+
+        boolean showFav = mTabs.getSelectedTabPosition() == 0;
+
+        // Favorites
+        JSONArray favorites = new JSONArray(prefs.getString("favorites", DEFAULT_FAVOURITES));
+        for (int i = 0; i < favorites.length(); i++){
+            JSONObject favorite = favorites.getJSONObject(i);
+            JSONArray loc = favorite.getJSONArray("loc");
+            MarkerOptions opt = new MarkerOptions()
+                    .position(new LatLng(loc.getDouble(0), loc.getDouble(1)))
+                    .icon(getBitmapDescriptor(R.drawable.ic_star_border_gold_64dp))
+                    .anchor(.5f, .5f)
+                    .visible(showFav);
+            if (favorite.has("title"))
+                opt.title(favorite.getString("title"));
+            mFavourites.add(mMap.addMarker(opt));
+        }
+
+        // Favorites
+        JSONArray callHistory = new JSONArray(prefs.getString("callHistory", DEFAULT_CALLHISTORY));
+        for (int i = 0; i < callHistory.length(); i++){
+            JSONObject call = callHistory.getJSONObject(i);
+            JSONArray loc = call.getJSONArray("loc");
+            int iconResource = 0;
+            switch (CallType.valueOf(call.getString("type"))){
+                case INCOMING:
+                    iconResource = R.drawable.ic_call_received_green_64dp;
+                    break;
+                case OUTGOING:
+                    iconResource = R.drawable.ic_call_made_green_64dp;
+                    break;
+                case MISSED:
+                    iconResource = R.drawable.ic_call_missed_red_64dp;
+                    break;
+            };
+            MarkerOptions opt = new MarkerOptions()
+                    .position(new LatLng(loc.getDouble(0), loc.getDouble(1)))
+                    .icon(getBitmapDescriptor(iconResource))
+                    .anchor(0.5f, 0.5f)
+                    .visible(!showFav);
+            if (call.has("title"))
+                opt.title(call.getString("title"));
+            mCallHistory.add(mMap.addMarker(opt));
+        }
+    }
+
+    private BitmapDescriptor getBitmapDescriptor(int id) {
+        Drawable vectorDrawable = getDrawable(id);
+        vectorDrawable.setBounds(0, 0, 64, 64);
+        Bitmap bm = Bitmap.createBitmap(64, 64, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bm);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bm);
     }
 
     private void showCallHistory() {
-        for (Marker mark : mFavourites) {
-            mark.setVisible(false);
-        }
+        if (mCallHistory.isEmpty()) return;
 
-        if (mCallHistory.isEmpty()) {
-            for (LatLng pos : HISTORY) {
-                mCallHistory.add(mMap.addMarker(new MarkerOptions().position(pos)));
-            }
-        } else {
-            for (Marker mark : mCallHistory) {
-                mark.setVisible(true);
-            }
-        }
+        for (Marker mark : mFavourites)
+            mark.setVisible(false);
+        for (Marker mark : mCallHistory)
+            mark.setVisible(true);
     }
 
     private void showFavourites() {
-        for (Marker mark : mCallHistory) {
+        if (mFavourites.isEmpty()) return;
+
+        for (Marker mark : mCallHistory)
             mark.setVisible(false);
-        }
-
-        if (mFavourites.isEmpty()) {
-            for (LatLng pos : FAVOURITES) {
-                mFavourites.add(mMap.addMarker(new MarkerOptions().position(pos)));
-            }
-        } else {
-            for (Marker mark : mFavourites) {
-                mark.setVisible(true);
-            }
-        }
-    }
-
-    private void setupTabIconTints() {
-        final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        for (int i = 0; i < tabs.getTabCount(); i++) {
-            tabs.getTabAt(i).getIcon().setTint(
-                    getResources().getColor(R.color.colorWhite));
-        }
-    }
-
-    private void setupBottomSheet() {
-        LinearLayout bottomSheet = (LinearLayout) findViewById(R.id.bottom_sheet);
-        final BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
-
-        // Initial behavior
-        behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-
-        mFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-
+        for (Marker mark : mFavourites)
+            mark.setVisible(true);
     }
 
     @Override
     public void onMapClick(LatLng latLng) {
-        if (lastMarker == null) {
-            lastMarker = mMap.addMarker(new MarkerOptions().position(latLng));
+        if (mCurrentMaker != null){
+            // Remove marker
+            mCurrentMaker.remove();
+            mCurrentMaker = null;
+            // Hide bottom sheet
+            mBorromSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         }
-        else lastMarker.setPosition(latLng);
+    }
+
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        if (mCurrentMaker != null){
+            mCurrentMaker.setPosition(latLng);
+        }
+        else {
+            mCurrentMaker = mMap.addMarker(new MarkerOptions()
+                    .position(latLng).draggable(true));
+        }
+        updateCurrentLocation(latLng);
+    }
+
+    private void updateCurrentLocation(LatLng latLng) {
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        String title;
+        try {
+            Address address = geocoder.getFromLocation(
+                    latLng.latitude, latLng.longitude, 1).get(0);
+            title = address.getFeatureName();
+            if (title == null) title = address.getLocality();
+            if (title == null) title = address.getCountryName();
+            if (title == null) title = address.toString();
+        } catch (IOException | IndexOutOfBoundsException e) {
+            title = "Custom location";
+        }
+        mBorromSheetTitle.setText(title);
+        mBorromSheetLocation.setText(latLng.latitude + "," + latLng.longitude);
+        mBorromSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
     }
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        LinearLayout bottomSheet = (LinearLayout) findViewById(R.id.bottom_sheet);
-        final BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
-
-        // Update views
-        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-        List<Address> address = null;
-        LatLng loc = null;
-        try {
-            loc = marker.getPosition();
-            address = geocoder.getFromLocation(loc.latitude, loc.longitude, 1);
-        }catch (Exception jagBryrMigInte) {
-            return false;
+        if (marker == mCurrentMaker){
+            mBorromSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         }
-
-        TextView titleTextView = (TextView) bottomSheet.findViewById(R.id.titleTextView);
-        TextView locationTextView = (TextView) bottomSheet.findViewById(R.id.locationTextView);
-        titleTextView.setText(address.get(0).getCountryName());
-        locationTextView.setText(loc.latitude + ", " + loc.longitude);
-
-        // Set bottom sheet state
-        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-
+        else {
+            // Place marker on the other marker's position
+            onMapLongClick(marker.getPosition());
+        }
         return true;
     }
+
+    @Override
+    public void onMarkerDragStart(Marker marker) {
+
+    }
+
+    @Override
+    public void onMarkerDrag(Marker marker) {
+
+    }
+
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+        updateCurrentLocation(marker.getPosition());
+    }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
+        //mMap.getUiSettings().setMapToolbarEnabled();
 
         // TODO: permissions
         mMap.setMyLocationEnabled(true);
 
         mMap.setOnMapClickListener(this);
+        mMap.setOnMapLongClickListener(this);
         mMap.setOnMarkerClickListener(this);
+        mMap.setOnMarkerDragListener(this);
 
-        // Initialize current tab
-        final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        onTabSelected(tabs.getTabAt(tabs.getSelectedTabPosition()));
+        // Load data)
+        try {
+            loadSavedData();
+        } catch (JSONException e) {
+            // TODO: Handle exception
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -321,14 +393,20 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(client);
-            if (mLastLocation != null) {
-                longitude = mLastLocation.getLongitude();
-                latitude = mLastLocation.getLatitude();
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+            // Register for location updates
+            LocationServices.FusedLocationApi.requestLocationUpdates(
+                    client, LocationRequest.create().setInterval(300000), this);
+
+            // Get latest known location
+            Location loc = LocationServices.FusedLocationApi.getLastLocation(client);
+            if (loc != null) {
+                onLocationChanged(loc);
 
                 // call AsynTask to perform network operation on separate thread
-                new HttpAsyncTask().execute("http://angseus.ninja:3000/");
+                //new HttpAsyncTask().execute("http://angseus.ninja:3000/");
                 //etResponse.setText(String.valueOf(longitude) + " " + String.valueOf(latitude));
                 //mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
             }
@@ -337,13 +415,111 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onConnectionSuspended(int i) {
-
+        LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        // TODO: Update my location to server
+        User me = null;
+        new UpdateLocation().execute(me);
+    }
+
+    private static String convertInputStreamToString(InputStream inputStream) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        String line = "";
+        StringBuilder res = new StringBuilder();
+        while ((line = bufferedReader.readLine()) != null)
+            res.append(line);
+        inputStream.close();
+        return res.toString();
+    }
+
+    private class User {
+        private int id;
+        private LatLng loc;
+
+        public User(int id, LatLng loc) {
+            this.id = id;
+            this.loc = loc;
+        }
+        public int getId() {
+            return id;
+        }
+        public LatLng getLocation() {
+            return loc;
+        }
+    }
+
+    private class UpdateLocation extends AsyncTask<User, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(User... params) {
+            try {
+                String url = "https://xxx:NNNN/location";
+                HttpPost req = new HttpPost(url);
+
+                User self = params[0];
+                LatLng loc = self.getLocation();
+
+                JSONObject body = new JSONObject();
+                body.put("user", self.getId());
+                body.put("lat", loc.latitude);
+                body.put("lon", loc.longitude);
+
+                req.setEntity(new StringEntity(body.toString(), "UTF8"));
+                req.setHeader("Content-type", "application/json");
+
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpResponse res = httpClient.execute(req);
+            } catch (IOException | JSONException e) {
+                // TODO: Handle error
+                e.printStackTrace();
+                return false;
+            }
+            return true;
+        }
+    }
+
+    private class GetLocations extends AsyncTask<LatLng, Void, User[]> {
+        @Override
+        protected User[] doInBackground(LatLng... params) {
+            try {
+                LatLng loc = params[0];
+                String url = "https://xxx:NNNN/location?lat=" + loc.latitude + "&lon=" + loc.longitude;
+                HttpGet req = new HttpGet(url);
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpResponse res = httpClient.execute(req);
+
+                JSONArray data = new JSONArray(convertInputStreamToString(res.getEntity().getContent()));
+                User[] users = new User[data.length()];
+                for (int i = 0; i < users.length; i++){
+                    JSONObject item = data.getJSONObject(i);
+                    User user = new User(item.getInt("id"), new LatLng(
+                            item.getDouble("id"),item.getDouble("id")));
+                    users[i] = user;
+                }
+                return users;
+            } catch (IOException | JSONException e) {
+                // TODO: Handle error
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(User[] users) {
+            // TODO: Initialize call to a user/all users
+        }
+    }
+
+
+    // OLD
+
 
 
     /* TO BE USED TO UPDATE LOCATIONS ?*/
@@ -395,26 +571,6 @@ public class MainActivity extends AppCompatActivity implements
             Log.d("InputStream", e.getLocalizedMessage());
         }
         return result;
-    }
-
-    private static String convertInputStreamToString(InputStream inputStream) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        String line = "";
-        String result = "";
-        while ((line = bufferedReader.readLine()) != null)
-            result += line;
-
-        inputStream.close();
-        return result;
-    }
-
-    public boolean isConnected() {
-        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected())
-            return true;
-        else
-            return false;
     }
 
     private class getLocations extends AsyncTask<String, Void, String> {
@@ -473,11 +629,11 @@ public class MainActivity extends AppCompatActivity implements
             //WifiInfo info = manager.getConnectionInfo();
             //String MAC = info.getMacAddress();
 
-            TelephonyManager tMgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            String MAC = tMgr.getLine1Number();
+            //TelephonyManager tMgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            //String MAC = tMgr.getLine1Number();
 
             try {
-                object.put("phonenumber", MAC);
+                //object.put("phonenumber", MAC);
                 object.put("longitude", longitude);
                 object.put("latitude", latitude);
 
