@@ -15,31 +15,27 @@
         android:focusable="true"
         android:focusableInTouchMode="true">
 
-
         <android.support.v7.widget.SearchView
+            android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:iconifiedByDefault="false"
             app:queryHint="Search places..." />
 
         <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabTextColor="@color/colorWhite"
-            app:tabIndicatorColor="@color/colorWhite">
+            android:layout_height="wrap_content">
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/ic_star_black_24dp"
-                android:foreground="@color/colorWhite"/>
+                android:icon="@drawable/ic_star_white_24dp"/>
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/ic_schedule_black_24dp"
-                android:foreground="@color/colorWhite"/>
+                android:icon="@drawable/ic_schedule_white_24dp"/>
 
         </android.support.design.widget.TabLayout>
 
@@ -50,7 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout android:id="@+id/markDetBottomSheet"
+    <LinearLayout
+        android:id="@+id/bottomSheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -65,19 +62,17 @@
             android:orientation="vertical"
             android:layout_margin="@dimen/activity_vertical_margin">
             <TextView android:id="@+id/titleTextView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/titleTextView" />
+                android:text="title"/>
 
             <TextView android:id="@+id/locationTextView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
-                android:id="@+id/locationTextView" />
+                android:text="location"/>
         </LinearLayout>
 
         <GridLayout
@@ -161,7 +156,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_anchor="@id/markDetBottomSheet"
+        app:layout_anchor="@id/bottomSheet"
         app:layout_anchorGravity="top|right|end"
         android:src="@drawable/ic_call_black_24dp"
         android:tint="@color/colorWhite"/>

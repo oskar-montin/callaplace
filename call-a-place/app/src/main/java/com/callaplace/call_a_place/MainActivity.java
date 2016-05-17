@@ -1,43 +1,46 @@
 package com.callaplace.call_a_place;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -52,23 +55,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements
         TabLayout.OnTabSelectedListener,
-        OnMapReadyCallback, GoogleMap.OnMapClickListener,
+        OnMapReadyCallback,
+        GoogleMap.OnMapClickListener,
+        GoogleMap.OnMapLongClickListener,
         GoogleMap.OnMarkerClickListener,
-        LocationListener
         GoogleMap.OnMarkerDragListener,
         com.google.android.gms.location.LocationListener,
         GoogleApiClient.ConnectionCallbacks,
@@ -76,19 +74,20 @@ public class MainActivity extends AppCompatActivity implements
 
     private static String DEFAULT_FAVOURITES = "[" +
             "{'loc':[47,20]}," +
-            "{'loc':[57,13]}]";
+            "{'loc':[57,13],'title':'My favourite'}]";
     private static String DEFAULT_CALLHISTORY = "[" +
-            "{'type':'INCOMING','loc':[19,6],'time':'2016-05-14T10:10:10.010Z'}," +
-            "{'type':'OUTGOING','loc':[50,15],'time':'2016-05-14T12:12:10.012Z'}," +
-            "{'type':'MISSED','loc':[42,11],'time':'2016-05-14T15:15:10.015Z'}]";
+            "{'type':'INCOMING','loc':[19,6]}," +
+            "{'type':'OUTGOING','loc':[50,15],'title':'My friend'}," +
+            "{'type':'MISSED','loc':[42,11]}]";
 
-    enum CallType {INCOMING, OUTGOING, MISSED};
+    private enum CallType {INCOMING, OUTGOING, MISSED};
 
 
     private String mUserId;
 
     private GoogleMap mMap;
 
+    private TabLayout mTabs;
     private FloatingActionButton mFab;
     private SearchView mSearchView;
 
@@ -99,65 +98,60 @@ public class MainActivity extends AppCompatActivity implements
     private TextView mMarkerDetailsTitle;
     private TextView mMarkerDetailsLocation;
 
+    private BottomSheetBehavior mBorromSheetBehavior;
+    private TextView mBorromSheetTitle;
+    private TextView mBorromSheetLocation;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
 
-    private List<Marker> mFavouriteMarkers = new ArrayList<Marker>();
-    private Map<JSONObject, Marker> mCallHistoryMarkers = new HashMap<>();
+    private List<Marker> mFavourites = new ArrayList<Marker>();
+    private List<Marker> mCallHistory = new ArrayList<Marker>();
     private Marker mCurrentMaker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFab = (FloatingActionButton) findViewById(R.id.fab);
-        mSearchView = (SearchView) findViewById(R.id.searchView);
+        // Get (opt) id from preferences
+        SharedPreferences prefs = getPreferences(0);
+        mUserId = prefs.getString("user", null);
 
-        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Pattern locTest = Pattern.compile("(\\d+\\.?\\d*),(\\d+\\.?\\d*)");
-                Matcher m = locTest.matcher(query);
-                if (m.matches()){
-                    LatLng loc = new LatLng(Double.parseDouble(m.group(1)),
-                            Double.parseDouble(m.group(2)));
-                    onMapLongClick(loc);
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16));
-                }
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
-        final LinearLayout markDetBottomSheet = (LinearLayout) findViewById(R.id.markDetBottomSheet);
-        final LinearLayout histBottomSheet = (LinearLayout) findViewById(R.id.histBottomSheet);
-        mMarkerDetailsBottomSheetBehavior = BottomSheetBehavior.from(markDetBottomSheet);
-        mMarkerDetailsBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        mCallHistoryBottomSheetBehavior = BottomSheetBehavior.from(histBottomSheet);
-        mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-
-        mMarkerDetailsTitle = (TextView)  markDetBottomSheet.findViewById(R.id.titleTextView);
-        mMarkerDetailsLocation = (TextView) markDetBottomSheet.findViewById(R.id.locationTextView);
-
-        mCallHistoryList = (RecyclerView) histBottomSheet.findViewById(R.id.callHistoryList);
-        mCallHistoryList.setLayoutManager(new LinearLayoutManager(this));
+        // TODO: Get voip user settings etc. from prefs
 
         // Initialize map
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        final SupportMapFragment mapFragment = (SupportMapFragment)
+                getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mTabs = (TabLayout) findViewById(R.id.tabLayout);
+        mFab = (FloatingActionButton) findViewById(R.id.fab);
+
+        final LinearLayout bottomSheet = (LinearLayout) findViewById(R.id.bottomSheet);
+        mBorromSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        mBorromSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
+        mBorromSheetTitle = (TextView) bottomSheet.findViewById(R.id.titleTextView);
+        mBorromSheetLocation = (TextView) bottomSheet.findViewById(R.id.locationTextView);
+
+        mTabs.setOnTabSelectedListener(this);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        client = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .addApi(AppIndex.API)
+                .build();
+
+        //ActivityCompat.requestPermissions(this, new String[]{
+        // Manifest.permission.ACCESS_FINE_LOCATION}, 1);
     }
 
     private void loadSavedData() throws JSONException {
@@ -177,13 +171,15 @@ public class MainActivity extends AppCompatActivity implements
                     .icon(getBitmapDescriptor(R.drawable.ic_star_border_gold_64dp))
                     .anchor(.5f, .5f)
                     .visible(currTab == 0);
-            mFavouriteMarkers.add(mMap.addMarker(opt));
+            if (favorite.has("title"))
+                opt.title(favorite.getString("title"));
+            mFavourites.add(mMap.addMarker(opt));
         }
 
-        // Call history
-        JSONArray history = new JSONArray(prefs.getString("history", DEFAULT_CALLHISTORY));
-        for (int i = 0; i < history.length(); i++) {
-            JSONObject call = history.getJSONObject(i);
+        // Favorites
+        JSONArray callHistory = new JSONArray(prefs.getString("history", DEFAULT_CALLHISTORY));
+        for (int i = 0; i < callHistory.length(); i++) {
+            JSONObject call = callHistory.getJSONObject(i);
             JSONArray loc = call.getJSONArray("loc");
             int iconResource = 0;
             switch (CallType.valueOf(call.getString("type"))) {
@@ -203,23 +199,10 @@ public class MainActivity extends AppCompatActivity implements
                     .icon(getBitmapDescriptor(iconResource))
                     .anchor(0.5f, 0.5f)
                     .visible(currTab == 1);
-            mCallHistoryMarkers.put(call, mMap.addMarker(opt));
+            if (call.has("title"))
+                opt.title(call.getString("title"));
+            mCallHistory.add(mMap.addMarker(opt));
         }
-
-        if (mCurrentMaker == null && currTab == 1){
-            mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        }
-
-        final CallHistoryAdapter adapter = new CallHistoryAdapter(history);
-        mCallHistoryList.setAdapter(adapter);
-        adapter.setOnCallSelectedListener(new CallHistoryAdapter.OnCallSelectedListener(){
-            @Override
-            public void onSelected(JSONObject call) {
-                Marker m = mCallHistoryMarkers.get(call);
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(m.getPosition(), 17));
-            }
-        });
-    }
 
     private BitmapDescriptor getBitmapDescriptor(int id) {
         Drawable vectorDrawable = getDrawable(id);
@@ -231,23 +214,19 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void showCallHistory() {
-        if (mCallHistoryMarkers.isEmpty()) return;
-        for (Marker mark : mFavouriteMarkers)
+        if (mCallHistory.isEmpty()) return;
+        for (Marker mark : mFavourites)
             mark.setVisible(false);
-        for (Marker mark : mCallHistoryMarkers.values())
+        for (Marker mark : mCallHistory)
             mark.setVisible(true);
-        if (mCurrentMaker == null){
-            mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        }
     }
 
     private void showFavourites() {
-        if (mFavouriteMarkers.isEmpty()) return;
-        for (Marker mark : mCallHistoryMarkers.values())
+        if (mFavourites.isEmpty()) return;
+        for (Marker mark : mCallHistory)
             mark.setVisible(false);
-        for (Marker mark : mFavouriteMarkers)
+        for (Marker mark : mFavourites)
             mark.setVisible(true);
-        mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
     }
 
     @Override
@@ -257,11 +236,52 @@ public class MainActivity extends AppCompatActivity implements
             mCurrentMaker.remove();
             mCurrentMaker = null;
             // Hide bottom sheet
-            mMarkerDetailsBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+            mBorromSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         }
-        if (mTabs.getSelectedTabPosition() == 1){
-            mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+    }
+
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        if (mCurrentMaker != null) {
+            mCurrentMaker.setPosition(latLng);
+        } else {
+            mCurrentMaker = mMap.addMarker(new MarkerOptions()
+                    .position(latLng).draggable(true));
         }
+        updateMarkerData(latLng);
+    }
+
+    private void updateMarkerData(LatLng latLng) {
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        String title;
+        try {
+            Address address = geocoder.getFromLocation(
+                    latLng.latitude, latLng.longitude, 1).get(0);
+            title = address.getFeatureName();
+            if (title == null) title = address.getLocality();
+            if (title == null) title = address.getCountryName();
+            if (title == null) title = address.toString();
+        } catch (IOException | IndexOutOfBoundsException e) {
+            title = "Custom location";
+        }
+        mBorromSheetTitle.setText(title);
+        mBorromSheetLocation.setText(latLng.latitude + "," + latLng.longitude);
+        mBorromSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        if (marker == mCurrentMaker) {
+            mBorromSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+        } else {
+            // Place marker on the other marker's position
+            onMapLongClick(marker.getPosition());
+        }
+        return true;
+    }
+
+    @Override
+    public void onMarkerDragStart(Marker marker) {
 
         if (mFavourites.isEmpty()) {
             for (LatLng pos : FAVOURITES) {
@@ -275,46 +295,44 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    private void updateMarkerData(LatLng latLng) {
-        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-        String title;
-        try {
-            Address address = geocoder.getFromLocation(
-                    latLng.latitude, latLng.longitude, 1).get(0);
-            title = address.getThoroughfare() + " " + address.getFeatureName();
-        } catch (IOException | IndexOutOfBoundsException e) {
-            title = "Custom location";
-        }
-        mMarkerDetailsTitle.setText(title);
-        mMarkerDetailsLocation.setText(latLng.latitude + "," + latLng.longitude);
+    @Override
+    public void onMarkerDrag(Marker marker) {
+
     }
 
     @Override
-    public boolean onMarkerClick(Marker marker) {
-        if (marker == mCurrentMaker) {
-            mMarkerDetailsBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        } else {
-            // Place marker on the other marker's position
-            onMapLongClick(marker.getPosition());
-        }
-        return true;
+    public void onMarkerDragEnd(Marker marker) {
+        updateMarkerData(marker.getPosition());
     }
-    
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
+        //mMap.getUiSettings().setMapToolbarEnabled();
 
         // TODO: permissions
-        mMap.setMyLocationEnabled(true);
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        }
+        else mMap.setMyLocationEnabled(true);
 
         mMap.setOnMapClickListener(this);
+        mMap.setOnMapLongClickListener(this);
         mMap.setOnMarkerClickListener(this);
+        mMap.setOnMarkerDragListener(this);
 
-        // Initialize current tab
-        final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        onTabSelected(tabs.getTabAt(tabs.getSelectedTabPosition()));
+        // Load data)
+        try {
+            loadSavedData();
+        } catch (JSONException e) {
+            // TODO: Handle exception
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -426,7 +444,7 @@ public class MainActivity extends AppCompatActivity implements
         @Override
         protected String doInBackground(Location... params) {
             try {
-                String url = "https://xxx/location";
+                String url = "https://xxx:NNNN/location";
                 HttpPost req = new HttpPost(url);
 
                 Location loc = params[0];
@@ -489,7 +507,7 @@ public class MainActivity extends AppCompatActivity implements
         protected User[] doInBackground(LatLng... params) {
             mTarget = params[0];
             try {
-                String url = "https://xxx/location?lat=" +
+                String url = "https://xxx:NNNN/location?lat=" +
                         mTarget.latitude + "&lon=" + mTarget.longitude;
                 HttpGet req = new HttpGet(url);
                 HttpClient httpClient = new DefaultHttpClient();
