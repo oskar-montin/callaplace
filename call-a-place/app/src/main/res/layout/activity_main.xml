@@ -47,7 +47,7 @@
         android:layout_height="match_parent" />
 
     <LinearLayout
-        android:id="@+id/bottomSheet"
+        android:id="@+id/markDetBottomSheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -61,18 +61,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="@dimen/activity_vertical_margin">
-            <TextView android:id="@+id/titleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="title"/>
 
+            <TextView android:id="@+id/titleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView android:id="@+id/locationTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="location"/>
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
         <GridLayout
@@ -156,7 +154,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_anchor="@id/bottomSheet"
+        app:layout_anchor="@id/markDetBottomSheet"
         app:layout_anchorGravity="top|right|end"
         android:src="@drawable/ic_call_black_24dp"
         android:tint="@color/colorWhite"/>
