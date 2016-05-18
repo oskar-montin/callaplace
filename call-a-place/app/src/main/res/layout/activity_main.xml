@@ -47,33 +47,30 @@
         android:layout_height="match_parent" />
 
     <LinearLayout
-        android:id="@+id/bottomSheet"
+        android:id="@+id/markDetBottomSheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/colorWhite"
-        android:elevation="6dp"
+        android:elevation="4dp"
         app:layout_behavior="@string/bottom_sheet_behavior"
         app:behavior_hideable="true"
         app:behavior_peekHeight="88dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="@dimen/activity_vertical_margin">
-            <TextView android:id="@+id/titleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="title"/>
 
+            <TextView android:id="@+id/titleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView android:id="@+id/locationTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="location"/>
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
         <GridLayout
@@ -131,15 +128,33 @@
                 android:text="57.XXXXXXXX, 11.97XXXXX"
                 android:layout_margin="@dimen/activity_horizontal_margin" />
         </LinearLayout>-->
-
     </LinearLayout>
+
+
+    <LinearLayout android:id="@+id/histBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorWhite"
+        android:elevation="4dp"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/callHistoryList"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:layout_marginTop="8dp">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_anchor="@id/bottomSheet"
+        app:layout_anchor="@id/markDetBottomSheet"
         app:layout_anchorGravity="top|right|end"
         android:src="@drawable/ic_call_black_24dp"
         android:tint="@color/colorWhite"/>
