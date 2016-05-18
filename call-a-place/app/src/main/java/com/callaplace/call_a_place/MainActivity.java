@@ -383,17 +383,9 @@ public class MainActivity extends AppCompatActivity implements
     public void onConnected(@Nullable Bundle bundle) {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-
             // Register for location updates
-            LocationServices.FusedLocationApi.requestLocationUpdates(
-                    client, LocationRequest.create().setInterval(300000)
-                            .setSmallestDisplacement(15), this);
-
-            // Get latest known location
-            Location loc = LocationServices.FusedLocationApi.getLastLocation(client);
-            if (loc != null) {
-                onLocationChanged(loc);
-            }
+            LocationServices.FusedLocationApi.requestLocationUpdates(client,
+                    LocationRequest.create().setInterval(300000).setSmallestDisplacement(15), this);
         }
     }
 
@@ -426,7 +418,7 @@ public class MainActivity extends AppCompatActivity implements
         @Override
         protected String doInBackground(Location... params) {
             try {
-                String url = "https://xxx:NNNN/location";
+                String url = "http://angseus.ninja:3000/locations";
                 HttpPost req = new HttpPost(url);
 
                 Location loc = params[0];
@@ -448,7 +440,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 JSONObject data = new JSONObject(convertInputStreamToString(
                         res.getEntity().getContent()));
-                return data.getString("user");
+                return data.getString("_id");
             } catch (IOException | JSONException e) {
                 // TODO: Handle error
                 e.printStackTrace();
@@ -457,11 +449,11 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         @Override
-        protected void onPostExecute(String userId) {
-            if (userId != mUserId){
+        protected void onPostExecute(String id) {
+            if (id != mUserId){
                 SharedPreferences prefs = getPreferences(0);
-                if (prefs.edit().putString("user", userId).commit()){
-                    mUserId = userId;
+                if (prefs.edit().putString("user", id).commit()){
+                    mUserId = id;
                 }
             }
         }
@@ -489,7 +481,7 @@ public class MainActivity extends AppCompatActivity implements
         protected User[] doInBackground(LatLng... params) {
             mTarget = params[0];
             try {
-                String url = "https://xxx:NNNN/location?lat=" +
+                String url = "http://angseus.ninja:3000/locations?lat=" +
                         mTarget.latitude + "&lon=" + mTarget.longitude;
                 HttpGet req = new HttpGet(url);
                 HttpClient httpClient = new DefaultHttpClient();
@@ -504,7 +496,7 @@ public class MainActivity extends AppCompatActivity implements
                 User[] users = new User[data.length()];
                 for (int i = 0; i < users.length; i++){
                     JSONObject obj = data.getJSONObject(i);
-                    users[i] = new User(obj.getString("user"), new LatLng(
+                    users[i] = new User(obj.getString("_id"), new LatLng(
                             obj.getDouble("lat"), obj.getDouble("lon")));
                 }
                 return users;
