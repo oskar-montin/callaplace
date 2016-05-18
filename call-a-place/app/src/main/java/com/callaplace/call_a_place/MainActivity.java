@@ -347,6 +347,7 @@ public class MainActivity extends AppCompatActivity implements
         mMap = googleMap;
 
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
+        //mMap.getUiSettings().setMapToolbarEnabled();
 
         // TODO: permissions
         if (ActivityCompat.checkSelfPermission(this,
