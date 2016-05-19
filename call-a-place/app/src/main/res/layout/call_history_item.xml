@@ -2,7 +2,8 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:layout_marginLeft="12dp" android:layout_marginRight="12dp"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="8dp"
+    android:onClick="callHistorySelected">
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,13 +51,14 @@
 
         </LinearLayout>
 
-        <ImageButton
+        <ImageButton android:id="@+id/redialButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:layout_gravity="center"
             android:src="@drawable/ic_call_black_24dp"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:onClick="callHistoryRedial"/>
 
     </GridLayout>
 </android.support.v7.widget.CardView>

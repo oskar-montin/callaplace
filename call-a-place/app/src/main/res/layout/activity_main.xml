@@ -44,7 +44,7 @@
     <fragment android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
     <LinearLayout
         android:id="@+id/markDetBottomSheet"
@@ -86,13 +86,14 @@
                 android:layout_column="0"
                 android:layout_gravity="center"
                 android:layout_columnWeight="1"
-                android:text="share"
+                android:text="save"
                 android:textColor="@color/colorWhite"
                 android:drawableTop="@drawable/ic_star_black_24dp"
                 android:drawableTint="@color/colorWhite"
                 android:background="@android:color/transparent"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp" />
+                android:paddingBottom="8dp"
+                android:onClick="saveFavourite"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -106,7 +107,8 @@
                 android:drawableTint="@color/colorWhite"
                 android:background="@android:color/transparent"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp" />
+                android:paddingBottom="8dp"
+                android:onClick="shareLocation"/>
         </GridLayout>
 
         <!--<LinearLayout
@@ -130,7 +132,6 @@
         </LinearLayout>-->
     </LinearLayout>
 
-
     <LinearLayout android:id="@+id/histBottomSheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -148,15 +149,27 @@
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
-
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/callFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:layout_anchor="@id/markDetBottomSheet"
-        app:layout_anchorGravity="top|right|end"
+        app:layout_anchorGravity="right"
         android:src="@drawable/ic_call_black_24dp"
-        android:tint="@color/colorWhite"/>
+        android:tint="@color/colorWhite"
+        android:visibility="gone"
+        android:onClick="callLocation"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/myLocationFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/ic_my_location_black_24dp"
+        android:tint="@color/colorWhite"
+        android:onClick="focusMyLocation"/>
+
 
 </android.support.design.widget.CoordinatorLayout>

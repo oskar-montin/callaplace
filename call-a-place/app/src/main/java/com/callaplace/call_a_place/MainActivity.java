@@ -21,8 +21,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -93,7 +95,8 @@ public class MainActivity extends AppCompatActivity implements
     // Views
 
     private TabLayout mTabs;
-    private FloatingActionButton mFab;
+    private FloatingActionButton mCallFab;
+    private FloatingActionButton mMyLocationFab;
     private SearchView mSearchView;
 
     private BottomSheetBehavior mMarkerDetailsBottomSheetBehavior;
@@ -130,7 +133,8 @@ public class MainActivity extends AppCompatActivity implements
         mapFragment.getMapAsync(this);
 
         mTabs = (TabLayout) findViewById(R.id.tabLayout);
-        mFab = (FloatingActionButton) findViewById(R.id.fab);
+        mCallFab = (FloatingActionButton) findViewById(R.id.callFab);
+        mMyLocationFab = (FloatingActionButton) findViewById(R.id.myLocationFab);
         mSearchView = (SearchView) findViewById(R.id.searchView);
 
         mTabs.setOnTabSelectedListener(this);
@@ -227,20 +231,8 @@ public class MainActivity extends AppCompatActivity implements
             mCallHistoryMarkers.put(call, mMap.addMarker(opt));
         }
 
-        if (mCurrentMaker == null && currTab == 1) {
-            mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        }
-
-        final CallHistoryAdapter adapter = new CallHistoryAdapter(mCallHistory);
-        mCallHistoryList.setAdapter(adapter);
-        adapter.setOnCallSelectedListener(new CallHistoryAdapter.OnCallSelectedListener() {
-            @Override
-            public void onSelected(JSONObject call) {
-                Marker m = mCallHistoryMarkers.get(call);
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(m.getPosition(), 17));
-                m.showInfoWindow();
-            }
-        });
+        // Create adapter for call history
+        mCallHistoryList.setAdapter(new CallHistoryAdapter(mCallHistory));
     }
 
     private BitmapDescriptor getBitmapDescriptor(int id) {
@@ -259,12 +251,17 @@ public class MainActivity extends AppCompatActivity implements
         for (Marker mark : mCallHistoryMarkers.values())
             mark.setVisible(true);
         // Select first call
-        if (mCurrentMaker == null) { try {
-            Marker m = mCallHistoryMarkers.get(mCallHistory.getJSONObject(0));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(m.getPosition(), 17));
-            m.showInfoWindow();
-            mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        } catch (JSONException e) { }}
+        if (mCurrentMaker == null) {
+            try {
+                Marker m = mCallHistoryMarkers.get(mCallHistory.getJSONObject(0));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(m.getPosition(), 17));
+                m.showInfoWindow();
+                mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                mCallFab.setVisibility(View.GONE);
+                mMyLocationFab.setVisibility(View.GONE);
+            } catch (JSONException e) {
+            }
+        }
     }
 
     private void showFavourites() {
@@ -274,6 +271,8 @@ public class MainActivity extends AppCompatActivity implements
         for (Marker m : mFavouriteMarkers.values())
             m.setVisible(true);
         mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        mCallFab.setVisibility(View.GONE);
+        mMyLocationFab.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -282,9 +281,12 @@ public class MainActivity extends AppCompatActivity implements
             mCurrentMaker.remove();
             mCurrentMaker = null;
             mMarkerDetailsBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+            mCallFab.setVisibility(View.GONE);
         }
         if (mTabs.getSelectedTabPosition() == 1) {
             mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+        } else {
+            mMyLocationFab.setVisibility(View.VISIBLE);
         }
     }
 
@@ -296,6 +298,8 @@ public class MainActivity extends AppCompatActivity implements
             mCurrentMaker = mMap.addMarker(new MarkerOptions()
                     .position(latLng).draggable(true));
             mMarkerDetailsBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            mCallFab.setVisibility(View.VISIBLE);
+            mMyLocationFab.setVisibility(View.GONE);
         }
         mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         updateMarkerData(latLng);
@@ -319,6 +323,7 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onMarkerClick(Marker marker) {
         if (marker == mCurrentMaker) {
             mMarkerDetailsBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            mCallFab.setVisibility(View.VISIBLE);
         } else {
             // Place marker on the other marker's position
             onMapLongClick(marker.getPosition());
@@ -328,12 +333,13 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onMarkerDragStart(Marker marker) {
-
+        mMarkerDetailsTitle.setText(null);
     }
 
     @Override
     public void onMarkerDrag(Marker marker) {
-
+        LatLng latLng = marker.getPosition();
+        mMarkerDetailsLocation.setText(latLng.latitude + "," + latLng.longitude);
     }
 
     @Override
@@ -341,6 +347,51 @@ public class MainActivity extends AppCompatActivity implements
         updateMarkerData(marker.getPosition());
     }
 
+
+    public void focusMyLocation(View view) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Location location = LocationServices.FusedLocationApi.getLastLocation(client);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                location.getLatitude(), location.getLongitude()), 17));
+    }
+
+    // Event callbacks
+
+    public void callHistorySelected(View view) {
+        Marker marker = mCallHistoryMarkers.get(view.getTag());
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 17));
+        marker.showInfoWindow();
+    }
+
+    public void callHistoryRedial(View view) {
+        Marker marker = mCallHistoryMarkers.get(view.getTag());
+        LatLng loc = marker.getPosition();
+        Toast.makeText(getBaseContext(), "Redial (h) " + loc.longitude + ", " + loc.latitude, Toast.LENGTH_LONG).show();
+    }
+
+    public void callLocation(View view) {
+        LatLng loc = mCurrentMaker.getPosition();
+        Toast.makeText(getBaseContext(), "Call " + loc.longitude + ", " + loc.latitude, Toast.LENGTH_LONG).show();
+    }
+
+    public void saveFavourite(View view) {
+        LatLng loc = mCurrentMaker.getPosition();
+        Toast.makeText(getBaseContext(), "Save " + loc.longitude + ", " + loc.latitude, Toast.LENGTH_LONG).show();
+    }
+
+    public void shareLocation(View view) {
+        LatLng loc = mCurrentMaker.getPosition();
+        Toast.makeText(getBaseContext(), "Share " + loc.longitude + ", " + loc.latitude, Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {

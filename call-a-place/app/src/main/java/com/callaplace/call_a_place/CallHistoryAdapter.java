@@ -5,6 +5,7 @@ import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,37 +19,27 @@ import org.json.JSONObject;
 public class CallHistoryAdapter extends RecyclerView.Adapter<CallHistoryAdapter.ViewHolder> {
 
     private final JSONArray mCallHistory;
-    private OnCallSelectedListener onCallSelectedListener;
-
-    public void setOnCallSelectedListener(OnCallSelectedListener onCallSelectedListener) {
-        this.onCallSelectedListener = onCallSelectedListener;
-    }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private JSONObject mCall;
+        private final View root;
         private final TextView title, sub;
         private final ImageView icon;
+        private final ImageButton redial;
         public ViewHolder(View itemView) {
             super(itemView);
+            root = itemView;
             title = (TextView) itemView.findViewById(R.id.callCardTitle);
             sub = (TextView) itemView.findViewById(R.id.callCardSubTitle);
             icon = (ImageView) itemView.findViewById(R.id.callCardIcon);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onCallSelectedListener != null) {
-                        onCallSelectedListener.onSelected(mCall);
-                    }
-                }
-            });
+            redial = (ImageButton) itemView.findViewById(R.id.redialButton);
         }
 
-        public void setCall(JSONObject mCall) {
-            this.mCall = mCall;
+        public void setCall(JSONObject call) {
+            this.mCall = call;
+            root.setTag(call);
+            redial.setTag(call);
         }
-    }
-    static abstract class OnCallSelectedListener {
-        abstract public void onSelected(JSONObject call);
     }
 
     public CallHistoryAdapter(JSONArray callHistory) {
