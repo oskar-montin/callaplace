@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var express = require('express')
 var app = express()
 
-mongoose.connect('mongodb://angseus.ninja/test');
+mongoose.connect('mongodb://angseus.ninja/devices');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'db: connection error: '));
@@ -15,6 +15,7 @@ var Device = mongoose.model('Device', {
 });
 
 app.post('/location', function (req, res) {
+  console.log('loc', req.params);
   var id = req.params.id;
   var loc = req.params.loc;
   Device.findOneAndUpdate({id}, {loc});
