@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ISO8601 {
-    private static final SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+    private static final SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
     static class Serializer implements JsonSerializer<Date> {
         @Override
         public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {

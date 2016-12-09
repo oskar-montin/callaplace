@@ -14,6 +14,7 @@ import android.net.sip.SipManager;
 import android.net.sip.SipProfile;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
@@ -29,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -59,6 +61,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
@@ -104,7 +108,12 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             .create();
 
     private static class ServiceUrl {
-        public static String LOCATION_UPDATE = "http://angseus.ninja:3000/location";
+        public static String LOCATION =
+                "http://192.168.1.100:3000/location";
+                //"http://angseus.ninja:3000/location";
+        public static String CALL =
+                "http://192.168.1.100:3000/call";
+                //"http://angseus.ninja:3000/call";
     }
 
     private RequestQueue mRequestQueue;
@@ -211,8 +220,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 .addApi(LocationServices.API)
                 .addApi(Places.PLACE_DETECTION_API)
                 .addApi(AppIndex.API)
+                .addConnectionCallbacks(this)
                 .build();
-
         // todo: permissions
         //ActivityCompat.requestPermissions(this, new String[]{
         // Manifest.permission.ACCESS_FINE_LOCATION}, 1);
@@ -343,7 +352,20 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     }
 
     public void callButtonClick(View view) {
-        Toast.makeText(this, "Make call!", Toast.LENGTH_LONG);
+        // Send call command to server
+        Location location = LocationServices.FusedLocationApi.getLastLocation(client);
+        JsonObject params = new JsonObject();
+        JsonArray loc = new JsonArray();
+        loc.add(location.getLatitude());
+        loc.add(location.getLongitude());
+        params.add("loc", loc);
+        try {
+            mRequestQueue.add(new JsonObjectRequest(
+                    ServiceUrl.LOCATION,
+                    new JSONObject(params.toString()),
+                    this,
+                    this));
+        } catch (JSONException e) {}
     }
 
     @Override
@@ -479,6 +501,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 Uri.parse("android-app://com.callaplace.call_a_place/http/host/path")
         );
         AppIndex.AppIndexApi.start(client, viewAction);
+        client.connect();
     }
 
     @Override
@@ -497,6 +520,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 Uri.parse("android-app://com.callaplace.call_a_place/http/host/path")
         );
         AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 
     @Override
@@ -510,8 +534,11 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             LocationServices.FusedLocationApi.requestLocationUpdates(client, request, this);
             // Initialize map to last known position
             Location loc = LocationServices.FusedLocationApi.getLastLocation(client);
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(loc.getLatitude(), loc.getLongitude()), 17));
+            if (loc != null) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                        new LatLng(loc.getLatitude(), loc.getLongitude()), 17));
+                onLocationChanged(loc);
+            }
         }
     }
 
@@ -526,13 +553,20 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     @Override
     public void onLocationChanged(Location location) {
         // Update my location to server
-        JSONObject requestObject = new JSONObject();
+        JsonObject params = new JsonObject();
+        params.addProperty("id", mDeviceId);
+        JsonArray loc = new JsonArray();
+        loc.add(location.getLatitude());
+        loc.add(location.getLongitude());
+        params.add("loc", loc);
         try {
-            requestObject.put("user", mDeviceId)
-                    .put("lat", location.getLatitude())
-                    .put("lon", location.getLongitude());
-        } catch (JSONException e) { return; }
-        mRequestQueue.add(new JsonObjectRequest(ServiceUrl.LOCATION_UPDATE, requestObject, this, this));
+            mRequestQueue.add(new JsonObjectRequest(
+                    Request.Method.POST,
+                    ServiceUrl.LOCATION,
+                    new JSONObject(params.toString()),
+                    this,
+                    this));
+        } catch (JSONException e) {}
     }
 
     @Override
