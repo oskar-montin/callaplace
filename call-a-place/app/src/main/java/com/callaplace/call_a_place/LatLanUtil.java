@@ -1,10 +1,10 @@
 package com.callaplace.call_a_place;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
@@ -16,17 +16,19 @@ public class LatLanUtil {
     static class Serializer implements JsonSerializer<LatLng> {
         @Override
         public JsonElement serialize(LatLng src, Type typeOfSrc, JsonSerializationContext context) {
-            JsonArray dst = new JsonArray();
-            dst.set(0, new JsonPrimitive(src.latitude));
-            dst.set(1, new JsonPrimitive(src.longitude));
+            JsonObject dst = new JsonObject();
+            dst.add("lat", new JsonPrimitive(src.latitude));
+            dst.add("lon", new JsonPrimitive(src.longitude));
             return dst;
         }
     }
     static class Deserializer implements JsonDeserializer<LatLng> {
         @Override
         public LatLng deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-            return new LatLng(json.getAsJsonArray().get(0).getAsDouble(),
-                    json.getAsJsonArray().get(1).getAsDouble());
+            return new LatLng(
+                    json.getAsJsonObject().get("lat").getAsDouble(),
+                    json.getAsJsonObject().get("lon").getAsDouble());
         }
     }
 }
+

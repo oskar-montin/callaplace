@@ -1,7 +1,6 @@
 package com.callaplace.call_a_place;
 
 import android.Manifest;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -14,7 +13,6 @@ import android.net.sip.SipManager;
 import android.net.sip.SipProfile;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
@@ -34,7 +32,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -61,12 +59,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -82,19 +75,19 @@ import static android.support.design.widget.BottomSheetBehavior.STATE_COLLAPSED;
 import static android.support.design.widget.BottomSheetBehavior.STATE_EXPANDED;
 import static android.support.design.widget.BottomSheetBehavior.STATE_HIDDEN;
 
-public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, LocationListener, GoogleApiClient.OnConnectionFailedListener, Response.Listener<JSONObject>, Response.ErrorListener, GoogleMap.OnMapLoadedCallback, GoogleMap.OnPoiClickListener, PlaceSelectionListener, GoogleMap.OnCameraIdleListener, CallHistoryAdapter.OnCallSelectedListener, GoogleApiClient.ConnectionCallbacks {
+public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, LocationListener, GoogleApiClient.OnConnectionFailedListener, Response.Listener<String>, Response.ErrorListener, GoogleMap.OnMapLoadedCallback, GoogleMap.OnPoiClickListener, PlaceSelectionListener, GoogleMap.OnCameraIdleListener, CallHistoryAdapter.OnCallSelectedListener, GoogleApiClient.ConnectionCallbacks {
 
     private static final int TAB_FAVOURITES = 0;
     private static final int TAB_HISTORY = 1;
 
     // todo: remove test data
     private static String DEFAULT_FAVOURITES = "[" +
-            "{'loc':[57.690,11.977]}," +
-            "{'loc':[57.690,11.972]}]";
+            "{loc:{lat:57.690,lon:11.977}}," +
+            "{loc:{lat:57.690,lon:11.972}}]";
     private static String DEFAULT_CALLHISTORY = "[" +
-            "{'type':'INCOMING','loc':[57.689,11.974],'time':'2016-05-14T10:10:10.010Z'}," +
-            "{'type':'OUTGOING','loc':[57.686,11.967],'time':'2016-05-14T12:12:10.012Z'}," +
-            "{'type':'MISSED','loc':[57.688,11.979],'time':'2016-05-14T15:15:10.015Z'}]";
+            "{type:'INCOMING',loc:{lat:57.689,lon:11.974},time:'2016-05-14T10:10:10.010Z'}," +
+            "{type:'OUTGOING',loc:{lat:57.686,lon:11.967},time:'2016-05-14T12:12:10.012Z'}," +
+            "{type:'MISSED',loc:{lat:57.688,lon:11.979},time:'2016-05-14T15:15:10.015Z'}]";
 
     private static String SIP_DOMAIN = "com.cloudcuddle.callaplace";
 
@@ -109,11 +102,11 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     private static class ServiceUrl {
         public static String LOCATION =
-                "http://192.168.1.100:3000/location";
-                //"http://angseus.ninja:3000/location";
+                "http://192.168.1.17:3000/location";
+        //"http://angseus.ninja:3000/location";
         public static String CALL =
-                "http://192.168.1.100:3000/call";
-                //"http://angseus.ninja:3000/call";
+                "http://192.168.1.17:3000/call";
+        //"http://angseus.ninja:3000/call";
     }
 
     private RequestQueue mRequestQueue;
@@ -202,8 +195,10 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                             removeMarker();
                         }
                     }
+
                     @Override
-                    public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
+                    public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                    }
                 });
 
         mMarkerDetailsTitle = (TextView) markerDetailsBottomSheet.findViewById(R.id.titleTextView);
@@ -228,7 +223,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     }
 
     private void loadSavedData() {
-        mFavorites = gson.fromJson(DEFAULT_FAVOURITES, new TypeToken<Collection<Favorite>>(){}.getType());
+        mFavorites = gson.fromJson(DEFAULT_FAVOURITES, new TypeToken<Collection<Favorite>>() {
+        }.getType());
         for (Favorite fav : mFavorites) {
             MarkerOptions opt = new MarkerOptions()
                     .position(fav.loc)
@@ -239,7 +235,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             marker.setTag(TAB_FAVOURITES);
             mFavoriteMarkers.put(fav, marker);
         }
-        mCallHistory = gson.fromJson(DEFAULT_CALLHISTORY, new TypeToken<ArrayList<RecentCall>>(){}.getType());
+        mCallHistory = gson.fromJson(DEFAULT_CALLHISTORY, new TypeToken<ArrayList<RecentCall>>() {
+        }.getType());
         Collections.sort(mCallHistory);
         for (RecentCall call : mCallHistory) {
             MarkerOptions opt = new MarkerOptions()
@@ -344,28 +341,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         if (mTabs.getSelectedTabPosition() == TAB_HISTORY) {
             mCallHistoryBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         }
-    }
-
-    public void saveButtonToggle(View view) {
-        boolean isFavourite = isFavourite(mCurrentMaker.getPosition());
-        mMarkerDetailsSaveButton.setText(isFavourite ? "SAVED" : "SAVE");
-    }
-
-    public void callButtonClick(View view) {
-        // Send call command to server
-        Location location = LocationServices.FusedLocationApi.getLastLocation(client);
-        JsonObject params = new JsonObject();
-        JsonArray loc = new JsonArray();
-        loc.add(location.getLatitude());
-        loc.add(location.getLongitude());
-        params.add("loc", loc);
-        try {
-            mRequestQueue.add(new JsonObjectRequest(
-                    ServiceUrl.LOCATION,
-                    new JSONObject(params.toString()),
-                    this,
-                    this));
-        } catch (JSONException e) {}
     }
 
     @Override
@@ -501,7 +476,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 Uri.parse("android-app://com.callaplace.call_a_place/http/host/path")
         );
         AppIndex.AppIndexApi.start(client, viewAction);
-        client.connect();
     }
 
     @Override
@@ -520,7 +494,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 Uri.parse("android-app://com.callaplace.call_a_place/http/host/path")
         );
         AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
     }
 
     @Override
@@ -552,25 +525,36 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onLocationChanged(Location location) {
-        // Update my location to server
-        JsonObject params = new JsonObject();
-        params.addProperty("id", mDeviceId);
-        JsonArray loc = new JsonArray();
-        loc.add(location.getLatitude());
-        loc.add(location.getLongitude());
-        params.add("loc", loc);
-        try {
-            mRequestQueue.add(new JsonObjectRequest(
-                    Request.Method.POST,
-                    ServiceUrl.LOCATION,
-                    new JSONObject(params.toString()),
-                    this,
-                    this));
-        } catch (JSONException e) {}
+        mRequestQueue.add(new LocationUpdate(gson, mDeviceId, location));
+    }
+
+    public void saveButtonToggle(View view) {
+        boolean isFavourite = isFavourite(mCurrentMaker.getPosition());
+        mMarkerDetailsSaveButton.setText(isFavourite ? "SAVED" : "SAVE");
+    }
+
+    public void callButtonClick(View view) {
+        // Send call command to server
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        if (mCurrentMaker != null) {
+            mRequestQueue.add(new CallRequest(mDeviceId, mCurrentMaker.getPosition(), this, this));
+        }
     }
 
     @Override
-    public void onResponse(JSONObject response) {
+    public void onResponse(String remoteDevice) {
+        Toast.makeText(this, "todo: call " + remoteDevice, Toast.LENGTH_LONG).show();
+
+        /*
         String id = response.optString("_id");
         if (id != null && id != mDeviceId) {
             SharedPreferences prefs = getPreferences(0);
@@ -579,10 +563,38 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 Toast.makeText(this, "ID: " + id, Toast.LENGTH_LONG).show();
             }
         }
+        */
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
+        Toast.makeText(this, "No one there", Toast.LENGTH_SHORT).show();
+    }
 
+    private static class LocationUpdate extends GsonRequest<LocationUpdate.Body, Void> {
+
+        public LocationUpdate(Gson gson, String id, Location loc) {
+            super(Method.POST, ServiceUrl.LOCATION, gson, new Body(id, loc), Void.TYPE, null, null);
+        }
+
+        static class Body {
+            private final String id;
+            private final Location loc;
+            public Body(String id, Location loc) {
+                this.id = id;
+                this.loc = loc;
+            }
+        }
+    }
+
+    private static class CallRequest extends StringRequest {
+        public CallRequest(String id, LatLng loc, Response.Listener<String> listener, Response.ErrorListener errorListener) {
+            super(Method.GET, ServiceUrl.CALL + createQuery(id, loc), listener, errorListener);
+        }
+
+        private static String createQuery(String id, LatLng loc) {
+            return String.format("?lat=%f&lon=%f&exclude=%s",
+                    loc.latitude, loc.longitude, id);
+        }
     }
 }
