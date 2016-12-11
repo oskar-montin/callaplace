@@ -1,31 +1,39 @@
 var mongoose = require('mongoose');
 var express = require('express')
-var app = express()
+var bodyParser = require('body-parser')
+var app = express();
 
-mongoose.connect('mongodb://angseus.ninja/devices');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'db: connection error: '));
-db.once('open', function() {
-  console.log('db: connected!')
-});
+mongoose.Promise = Promise;
+mongoose.connect('mongodb://angseus.ninja/callaplace');
 
 var Device = mongoose.model('Device', {
-  id: String, loc: [Number]
+  updatedAt: {type: Date, expires: 300000},
+  id: {type: String, index : true},
+  loc: {type: [Number], index:'2d'}
 });
 
-app.post('/location', function (req, res) {
-  console.log('loc', req.params);
-  var id = req.params.id;
-  var loc = req.params.loc;
-  Device.findOneAndUpdate({id}, {loc});
-  res.end();
+app.post('/location', function (req, res, next) {
+  Device.findOneAndUpdate({id: req.body.id}, {
+    loc: [req.body.loc.lon, req.body.loc.lat],
+    updatedAt: new Date()
+  }, {upsert: true})
+  .then(res.end, next);
 })
 
 app.get('/call', function (req, res, next) {
-  var center = req.params.loc;
-  Device.findOne().where('loc').near({center}).select('id')
-  .then(res.json, next);
+  Device.findOne()
+  //.ne('id', req.query.exclude)
+  .near('loc', {
+    center: [req.query.lon, req.query.lat],
+    maxDistance: 30.0 / 6371000,
+    spherical: true})
+  .select('-_id id')
+  .then(dev => dev ? res.send(dev.id) : res.status(404).end(), next);
 })
 
 app.listen(3000);
