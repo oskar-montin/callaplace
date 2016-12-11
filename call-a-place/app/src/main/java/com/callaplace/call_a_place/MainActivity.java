@@ -525,7 +525,9 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onLocationChanged(Location location) {
-        mRequestQueue.add(new LocationUpdate(gson, mDeviceId, location));
+        if (location != null) {
+            mRequestQueue.add(new LocationUpdate(gson, mDeviceId, location));
+        }
     }
 
     public void saveButtonToggle(View view) {
