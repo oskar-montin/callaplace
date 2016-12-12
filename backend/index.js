@@ -12,7 +12,7 @@ mongoose.Promise = Promise;
 mongoose.connect('mongodb://angseus.ninja/callaplace');
 
 var Device = mongoose.model('Device', {
-  updatedAt: {type: Date, expires: 300000},
+  updatedAt: {type: Date, expires: 300},
   id: {type: String, index : true},
   loc: {type: [Number], index:'2d'}
 });
