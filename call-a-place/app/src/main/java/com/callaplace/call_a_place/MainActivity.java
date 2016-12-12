@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private final Gson gson = new GsonBuilder()
             .registerTypeAdapter(LatLng.class, new LatLanUtil.Serializer())
             .registerTypeAdapter(LatLng.class, new LatLanUtil.Deserializer())
+            .registerTypeAdapter(Location.class, new LocationUtil.Serializer())
             .registerTypeAdapter(CallType.class, new CallType.Serializer())
             .registerTypeAdapter(CallType.class, new CallType.Deserializer())
             .registerTypeAdapter(Date.class, new ISO8601.Serializer())
