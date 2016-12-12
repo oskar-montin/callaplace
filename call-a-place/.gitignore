@@ -98,3 +98,5 @@ fabric.properties
 # *.iml
 # modules.xml
 
+# config.properties
+call-a-place/app/src/main/assets/config.properties
