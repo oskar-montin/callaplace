@@ -1,7 +1,9 @@
 package com.callaplace.call_a_place;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -62,6 +64,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -70,6 +73,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import static android.support.design.widget.BottomSheetBehavior.STATE_COLLAPSED;
 import static android.support.design.widget.BottomSheetBehavior.STATE_EXPANDED;
@@ -101,12 +105,16 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             .create();
 
     private static class ServiceUrl {
-        public static String LOCATION =
-                "http://192.168.1.17:3000/location";
-        //"http://angseus.ninja:3000/location";
-        public static String CALL =
-                "http://192.168.1.17:3000/call";
-        //"http://angseus.ninja:3000/call";
+        public static String LOCATION;
+        public static String CALL;
+
+        static void load(Context context) {
+            try {
+                String baseUrl = getConfigProp("server", context);
+                LOCATION = String.format("%s/location", baseUrl);
+                CALL = String.format("%s/call", baseUrl);
+            } catch (IOException e) {}
+        }
     }
 
     private RequestQueue mRequestQueue;
@@ -147,10 +155,20 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
      */
     private GoogleApiClient client;
 
+    private static String getConfigProp(String key, Context context) throws IOException {
+        Properties properties = new Properties();
+        AssetManager assetManager = context.getAssets();
+        InputStream inputStream = assetManager.open("config.properties");
+        properties.load(inputStream);
+        return properties.getProperty(key);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ServiceUrl.load(this);
 
         mRequestQueue = Volley.newRequestQueue(this);
         mSipManager = SipManager.newInstance(this);
