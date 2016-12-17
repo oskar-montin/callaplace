@@ -17,6 +17,13 @@ var Device = mongoose.model('Device', {
   token: String, loc: {type: [Number], index:'2d'}
 });
 
+app.post('/token', function (req, res, next) {
+  Device.findOneAndUpdate({id: req.body.id}, {$set: {
+    token: req.body.token
+  }}, {upsert: true})
+  .then(res.end, next);
+})
+
 app.post('/location', function (req, res, next) {
   Device.findOneAndUpdate({id: req.body.id}, {$set: {
     loc: [req.body.loc.lon, req.body.loc.lat],
