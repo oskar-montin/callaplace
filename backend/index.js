@@ -3,6 +3,10 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
+var FCM = require('fcm-push');
+var serverKey = require('./server-key');
+var fcm = new FCM(serverKey);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
