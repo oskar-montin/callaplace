@@ -18,10 +18,10 @@ var Device = mongoose.model('Device', {
 });
 
 app.post('/location', function (req, res, next) {
-  Device.findOneAndUpdate({id: req.body.id}, {
+  Device.findOneAndUpdate({id: req.body.id}, {$set: {
     loc: [req.body.loc.lon, req.body.loc.lat],
     updatedAt: new Date()
-  }, {upsert: true})
+  }}, {upsert: true})
   .then(res.end, next);
 })
 
