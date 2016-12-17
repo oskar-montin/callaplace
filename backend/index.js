@@ -37,14 +37,46 @@ app.post('/location', function (req, res, next) {
 })
 
 app.get('/call', function (req, res, next) {
-  Device.findOne()
-  //.ne('id', req.query.exclude)
-  .near('loc', {
-    center: [req.query.lon, req.query.lat],
-    maxDistance: 30.0 / 6371000,
-    spherical: true})
-  .select('-_id id')
-  .then(dev => dev ? res.send(dev.id) : res.status(404).end(), next);
+  Promise.all([
+    Device.findOne()
+    .where('id', req.query.exclude),
+    Device.findOne()
+    //.ne('id', req.query.exclude)
+    .near('loc', {
+      center: [req.query.lon, req.query.lat],
+      maxDistance: 30.0 / 6371000,
+      spherical: true})])
+  .then(pres => {
+    call({caller: pres[0], callee: pres[1]}, res, next);
+  }, next);
 })
+
+function call(req, res, next) {
+  if (!req.callee) {
+    return res.status(404).end();
+  }
+
+  // DEBUG: sleep, then send call
+  else if (req.callee.id == req.caller.id) {
+    setTimeout(() => {
+      fcm.send({
+        to: req.callee.token,
+        data: {loc: {
+          lon: req.caller.loc[0],
+          lat: req.caller.loc[1]
+        }}
+      });
+    }, 5000);
+    return res.end();
+  }
+
+  fcm.send({
+    to: req.callee.token,
+    data: {loc: {
+      lon: req.caller.loc[0],
+      lat: req.caller.loc[1]
+    }}
+  }).then(res.json, next);
+}
 
 app.listen(3000);
