@@ -1,9 +1,10 @@
 package com.callaplace.call_a_place;
 
 import android.Manifest;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -11,8 +12,6 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
-import android.net.sip.SipManager;
-import android.net.sip.SipProfile;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -30,7 +29,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -59,13 +57,12 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -73,7 +70,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import static android.support.design.widget.BottomSheetBehavior.STATE_COLLAPSED;
 import static android.support.design.widget.BottomSheetBehavior.STATE_EXPANDED;
@@ -93,8 +89,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             "{type:'OUTGOING',loc:{lat:57.686,lon:11.967},time:'2016-05-14T12:12:10.012Z'}," +
             "{type:'MISSED',loc:{lat:57.688,lon:11.979},time:'2016-05-14T15:15:10.015Z'}]";
 
-    private static String SIP_DOMAIN = "com.cloudcuddle.callaplace";
-
     private final Gson gson = new GsonBuilder()
             .registerTypeAdapter(LatLng.class, new LatLanUtil.Serializer())
             .registerTypeAdapter(LatLng.class, new LatLanUtil.Deserializer())
@@ -105,27 +99,12 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             .registerTypeAdapter(Date.class, new ISO8601.Deserializer())
             .create();
 
-    private static class ServiceUrl {
-        public static String LOCATION;
-        public static String CALL;
-
-        static void load(Context context) {
-            try {
-                String baseUrl = getConfigProp("server", context);
-                LOCATION = String.format("%s/location", baseUrl);
-                CALL = String.format("%s/call", baseUrl);
-            } catch (IOException e) {}
-        }
-    }
-
     private RequestQueue mRequestQueue;
-    private SipManager mSipManager;
     private Geocoder mGeocoder;
 
     private GoogleMap mMap;
 
     private String mDeviceId;
-    private SipProfile mSipProfile;
 
     private Collection<Favorite> mFavorites;
     private List<RecentCall> mCallHistory;
@@ -156,12 +135,11 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
      */
     private GoogleApiClient client;
 
-    private static String getConfigProp(String key, Context context) throws IOException {
-        Properties properties = new Properties();
-        AssetManager assetManager = context.getAssets();
-        InputStream inputStream = assetManager.open("config.properties");
-        properties.load(inputStream);
-        return properties.getProperty(key);
+    @Override
+    protected void onNewIntent(Intent intent) {
+        // todo: launch call activity
+        NotificationManager nMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nMgr.cancel(intent.getIntExtra(EventService.CancelNotification.EXTRA_ID, -1));
     }
 
     @Override
@@ -169,20 +147,14 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ServiceUrl.load(this);
-
         mRequestQueue = Volley.newRequestQueue(this);
-        mSipManager = SipManager.newInstance(this);
         mGeocoder = new Geocoder(this);
 
         mDeviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-        try {
-            mSipProfile = new SipProfile.Builder(mDeviceId, SIP_DOMAIN)
-                    .setPassword("password")
-                    .build();
-        } catch (ParseException e) {
-            throw new IllegalStateException("Dra åt helvete");
-        }
+
+        // Send token to server
+        String token = FirebaseInstanceId.getInstance().getToken();
+        mRequestQueue.add(new InstanceIDService.RegistrationToken(this, mDeviceId, token));
 
         mTabs = (TabLayout) findViewById(R.id.tabLayout);
         mTabs.setOnTabSelectedListener(this);
@@ -545,7 +517,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     @Override
     public void onLocationChanged(Location location) {
         if (location != null) {
-            mRequestQueue.add(new LocationUpdate(gson, mDeviceId, location));
+            mRequestQueue.add(new LocationUpdate(this, gson, mDeviceId, location));
         }
     }
 
@@ -567,7 +539,12 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             return;
         }
         if (mCurrentMaker != null) {
-            mRequestQueue.add(new CallRequest(mDeviceId, mCurrentMaker.getPosition(), this, this));
+            mRequestQueue.add(new CallRequest(this, mDeviceId, mCurrentMaker.getPosition(), this, this));
+            /*
+            try {
+                mRequestQueue.add(new CallRequest(this, mDeviceId, mCurrentMaker.getPosition(), this, this));
+            } catch (IOException e) {}
+            */
         }
     }
 
@@ -593,15 +570,15 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     }
 
     private static class LocationUpdate extends GsonRequest<LocationUpdate.Body, Void> {
+        private static final String LOCATION = "location";
 
-        public LocationUpdate(Gson gson, String id, Location loc) {
-            super(Method.POST, ServiceUrl.LOCATION, gson, new Body(id, loc), Void.TYPE, null, null);
+        public LocationUpdate(Context context, Gson gson, String id, Location loc) {
+            super(Method.POST, Url.get(context, LOCATION), gson, new Body(id, loc), Void.TYPE);
         }
-
         static class Body {
             private final String id;
             private final Location loc;
-            public Body(String id, Location loc) {
+            Body(String id, Location loc) {
                 this.id = id;
                 this.loc = loc;
             }
@@ -609,13 +586,14 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     }
 
     private static class CallRequest extends StringRequest {
-        public CallRequest(String id, LatLng loc, Response.Listener<String> listener, Response.ErrorListener errorListener) {
-            super(Method.GET, ServiceUrl.CALL + createQuery(id, loc), listener, errorListener);
+        private static final String CALL = "call";
+
+        public CallRequest(Context context, String id, LatLng loc, Response.Listener<String> listener, Response.ErrorListener errorListener) {
+            super(Method.GET, Url.get(context, CALL) + createQuery(id, loc), listener, errorListener);
         }
 
         private static String createQuery(String id, LatLng loc) {
-            return String.format("?lat=%f&lon=%f&exclude=%s",
-                    loc.latitude, loc.longitude, id);
+            return String.format("?lat=%f&lon=%f&exclude=%s", loc.latitude, loc.longitude, id);
         }
     }
 }

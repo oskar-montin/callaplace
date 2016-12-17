@@ -2,37 +2,32 @@ package com.callaplace.call_a_place;
 
 import android.content.Context;
 
-public enum Url {
-    LOCATION("location"),
-    CALL("call"),
-    DEVICE("device", true);
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
+public class Url {
     private static final String CONFIG_FILE = "config.properties";
     private static final String BASE_URL_KEY = "server";
     private static String sBaseUrl;
 
-    private String mValue;
-    private final boolean mUseIdPath;
+    private Url() {}
 
-    Url(String key){
-        this(key, false);
-    }
-    Url(String key, boolean useIdPath){
-        mValue = key;
-        mUseIdPath = useIdPath;
+    public static String get(Context context, String path) {
+        return String.format(base(context), path);
     }
 
-    public String val() {
-        return val(null);
-    }
-    public String val(String id) {
-        return String.format(mValue, sBaseUrl, id);
-    }
-
-    public static void load(Context context) {
-
-
-
-
+    private static String base(Context context) {
+        if (sBaseUrl == null) {
+            Properties properties = new Properties();
+            try {
+                InputStream inputStream = context.getAssets().open(CONFIG_FILE);
+                properties.load(inputStream);
+            } catch (IOException e) {
+                return null;
+            }
+            sBaseUrl = properties.getProperty(BASE_URL_KEY) + "/%s";
+        }
+        return sBaseUrl;
     }
 }
