@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "411154587535",
+    "firebase_url": "https://my-project-1479644109018.firebaseio.com",
+    "project_id": "my-project-1479644109018",
+    "storage_bucket": "my-project-1479644109018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411154587535:android:948bf902e9e45a37",
+        "android_client_info": {
+          "package_name": "com.callaplace.call_a_place"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411154587535-c1p7e3fvm6vn2gipekv7fnsh30ejet76.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.callaplace.call_a_place",
+            "certificate_hash": "401BEE0813E353B10295E28409C61B3E04624558"
+          }
+        },
+        {
+          "client_id": "411154587535-17e03g1jibe3d8fgcp3dljqimbhhrtcv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaiUWahmaJqg7HlpoeBrEPnEBceS7MP1I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411154587535-17e03g1jibe3d8fgcp3dljqimbhhrtcv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
