@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://angseus.ninja/callaplace');
+mongoose.connect(require('./db').url);
 
 var Device = mongoose.model('Device', {
   updatedAt: {type: Date, expires: 300},

@@ -50,5 +50,8 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
-# Server key
+# FCM Server key
 server-key.js
+
+# DB config
+db.js
