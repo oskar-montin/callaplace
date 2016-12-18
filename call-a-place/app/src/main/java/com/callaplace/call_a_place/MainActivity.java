@@ -19,7 +19,6 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -39,8 +38,6 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.Places;
@@ -75,7 +72,7 @@ import static android.support.design.widget.BottomSheetBehavior.STATE_COLLAPSED;
 import static android.support.design.widget.BottomSheetBehavior.STATE_EXPANDED;
 import static android.support.design.widget.BottomSheetBehavior.STATE_HIDDEN;
 
-public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, LocationListener, GoogleApiClient.OnConnectionFailedListener, Response.Listener<String>, Response.ErrorListener, GoogleMap.OnMapLoadedCallback, GoogleMap.OnPoiClickListener, PlaceSelectionListener, GoogleMap.OnCameraIdleListener, CallHistoryAdapter.OnCallSelectedListener, GoogleApiClient.ConnectionCallbacks {
+public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, GoogleApiClient.OnConnectionFailedListener, Response.Listener<String>, Response.ErrorListener, GoogleMap.OnMapLoadedCallback, GoogleMap.OnPoiClickListener, PlaceSelectionListener, GoogleMap.OnCameraIdleListener, CallHistoryAdapter.OnCallSelectedListener, GoogleApiClient.ConnectionCallbacks {
 
     private static final int TAB_FAVOURITES = 0;
     private static final int TAB_HISTORY = 1;
@@ -406,8 +403,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // req
-        }
-        else {
+        } else {
             mMap.setMyLocationEnabled(true);
         }
 
@@ -489,21 +485,20 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onConnected(Bundle bundle) {
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            // Register for location updates
-            LocationRequest request = LocationRequest.create()
-                    .setInterval(300000)
-                    .setSmallestDisplacement(15);
-            LocationServices.FusedLocationApi.requestLocationUpdates(client, request, this);
-            // Initialize map to last known position
-            Location loc = LocationServices.FusedLocationApi.getLastLocation(client);
-            if (loc != null) {
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                        new LatLng(loc.getLatitude(), loc.getLongitude()), 17));
-                onLocationChanged(loc);
-            }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
         }
+        LocationServices.FusedLocationApi.requestLocationUpdates(
+                client,
+                LocationReceiver.createDefaultRequest(),
+                LocationReceiver.createRequestIntent(this));
     }
 
     @Override
@@ -511,14 +506,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-        LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        if (location != null) {
-            mRequestQueue.add(new LocationUpdate(this, gson, mDeviceId, location));
-        }
+        LocationServices.FusedLocationApi.removeLocationUpdates(
+                client, LocationReceiver.createRequestIntent(this));
     }
 
     public void saveButtonToggle(View view) {
@@ -567,22 +556,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     @Override
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(this, "No one there", Toast.LENGTH_SHORT).show();
-    }
-
-    private static class LocationUpdate extends GsonRequest<LocationUpdate.Body, Void> {
-        private static final String LOCATION = "location";
-
-        public LocationUpdate(Context context, Gson gson, String id, Location loc) {
-            super(Method.POST, Url.get(context, LOCATION), gson, new Body(id, loc), Void.TYPE);
-        }
-        static class Body {
-            private final String id;
-            private final Location loc;
-            Body(String id, Location loc) {
-                this.id = id;
-                this.loc = loc;
-            }
-        }
     }
 
     private static class CallRequest extends StringRequest {
