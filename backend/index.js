@@ -76,7 +76,7 @@ function call(req, res, next) {
       lon: req.caller.loc[0],
       lat: req.caller.loc[1]
     }}
-  }).then(res.json, next);
+  }).then(res.end.bind(res), next);
 }
 
 app.listen(3000);
