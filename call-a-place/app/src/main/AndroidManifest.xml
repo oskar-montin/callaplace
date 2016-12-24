@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <uses-feature android:name="android.hardware.sip.voip" android:required="true" />
     <uses-feature android:name="android.hardware.microphone" android:required="true" />
@@ -39,6 +40,13 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".AutoStart"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".LocationReceiver"/>
         <service
             android:name=".InstanceIDService">

@@ -17,17 +17,17 @@ public class InstanceIDService extends FirebaseInstanceIdService {
 
     @Override
     public void onTokenRefresh() {
-        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-        final RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final RequestQueue queue = Volley.newRequestQueue(this);
         final String id = Settings.System.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-        requestQueue.add(new RegistrationToken(this, id, refreshedToken));
+        final String token = FirebaseInstanceId.getInstance().getToken();
+        queue.add(new RegistrationToken(this, id, token).thenStopQueue(queue));
     }
 
-    static class RegistrationToken extends GsonRequest<RegistrationToken.Body, Void> {
+    static class RegistrationToken extends ReceiverRequest<RegistrationToken.Body> {
         private static final String TOKEN = "token";
 
         public RegistrationToken(Context context, String id, String token) {
-            super(Method.POST, Url.get(context, TOKEN), sGson, new Body(id, token), Void.TYPE);
+            super(Method.POST, Url.get(context, TOKEN), sGson, new Body(id, token));
             Log.d(TAG, "Sending registration token: " + token);
         }
         static class Body {

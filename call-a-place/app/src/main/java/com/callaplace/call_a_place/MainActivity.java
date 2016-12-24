@@ -96,12 +96,13 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             .registerTypeAdapter(Date.class, new ISO8601.Deserializer())
             .create();
 
+    private String mDeviceId;
+
     private RequestQueue mRequestQueue;
     private Geocoder mGeocoder;
+    private GoogleApiClient mClient;
 
     private GoogleMap mMap;
-
-    private String mDeviceId;
 
     private Collection<Favorite> mFavorites;
     private List<RecentCall> mCallHistory;
@@ -126,12 +127,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private Map<RecentCall, Marker> mCallHistoryMarkers = new HashMap<>();
     private Marker mCurrentMaker;
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
-
     @Override
     protected void onNewIntent(Intent intent) {
         // todo: launch call activity
@@ -144,14 +139,23 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRequestQueue = Volley.newRequestQueue(this);
-        mGeocoder = new Geocoder(this);
-
         mDeviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        // Send token to server
-        String token = FirebaseInstanceId.getInstance().getToken();
-        mRequestQueue.add(new InstanceIDService.RegistrationToken(this, mDeviceId, token));
+        mRequestQueue = Volley.newRequestQueue(this);
+        mGeocoder = new Geocoder(this);
+        mClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(LocationServices.API)
+                .addApi(Places.PLACE_DETECTION_API)
+                .addApi(AppIndex.API)
+                .addConnectionCallbacks(this)
+                .build();
+
+        // Send registration token
+        final String token = FirebaseInstanceId.getInstance().getToken();
+        if (token != null) {
+            mRequestQueue.add(new InstanceIDService.RegistrationToken(this, mDeviceId, token));
+        }
 
         mTabs = (TabLayout) findViewById(R.id.tabLayout);
         mTabs.setOnTabSelectedListener(this);
@@ -196,15 +200,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
         mCallHistoryList = (RecyclerView) callHistoryBottomSheet.findViewById(R.id.callHistoryList);
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(LocationServices.API)
-                .addApi(Places.PLACE_DETECTION_API)
-                .addApi(AppIndex.API)
-                .addConnectionCallbacks(this)
-                .build();
         // todo: permissions
         //ActivityCompat.requestPermissions(this, new String[]{
         // Manifest.permission.ACCESS_FINE_LOCATION}, 1);
@@ -387,7 +382,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onPlaceSelected(Place place) {
-        Log.i("TAG", "Place: " + place.getName());
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(place.getLatLng(), 17));
         placeMarker(place.getLatLng(), STATE_COLLAPSED, place.getName().toString());
     }
@@ -462,7 +456,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 // TODO: Make sure this auto-generated app URL is correct.
                 Uri.parse("android-app://com.callaplace.call_a_place/http/host/path")
         );
-        AppIndex.AppIndexApi.start(client, viewAction);
+        AppIndex.AppIndexApi.start(mClient, viewAction);
     }
 
     @Override
@@ -480,7 +474,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 // TODO: Make sure this auto-generated app URL is correct.
                 Uri.parse("android-app://com.callaplace.call_a_place/http/host/path")
         );
-        AppIndex.AppIndexApi.end(client, viewAction);
+        AppIndex.AppIndexApi.end(mClient, viewAction);
     }
 
     @Override
@@ -495,8 +489,9 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+        Log.d("CAP/MainActivity", "requestLocationUpdates");
         LocationServices.FusedLocationApi.requestLocationUpdates(
-                client,
+                mClient,
                 LocationReceiver.createDefaultRequest(),
                 LocationReceiver.createRequestIntent(this));
     }
@@ -505,10 +500,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     public void onConnectionSuspended(int i) {}
 
     @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-        LocationServices.FusedLocationApi.removeLocationUpdates(
-                client, LocationReceiver.createRequestIntent(this));
-    }
+    public void onConnectionFailed(ConnectionResult connectionResult) {}
 
     public void saveButtonToggle(View view) {
         boolean isFavourite = isFavourite(mCurrentMaker.getPosition());
@@ -540,17 +532,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     @Override
     public void onResponse(String remoteDevice) {
         Toast.makeText(this, "todo: call " + remoteDevice, Toast.LENGTH_LONG).show();
-
-        /*
-        String id = response.optString("_id");
-        if (id != null && id != mDeviceId) {
-            SharedPreferences prefs = getPreferences(0);
-            if (prefs.edit().putString("user", id).commit()){
-                mDeviceId = id;
-                Toast.makeText(this, "ID: " + id, Toast.LENGTH_LONG).show();
-            }
-        }
-        */
     }
 
     @Override
