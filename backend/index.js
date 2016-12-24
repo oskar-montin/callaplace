@@ -36,47 +36,65 @@ app.post('/location', function (req, res, next) {
   .then(res.end, next);
 })
 
-app.get('/call', function (req, res, next) {
+app.route('/call')
+.get((req, res, next) => {
   Promise.all([
     Device.findOne()
-    .where('id', req.query.exclude),
-    Device.findOne()
+    .where('id', req.query.exclude)
+    .exec(),
+    Device.find()
     //.ne('id', req.query.exclude)
     .near('loc', {
       center: [req.query.lon, req.query.lat],
       maxDistance: 30.0 / 6371000,
-      spherical: true})])
+      spherical: true})
+    .exec()])
   .then(pres => {
-    call({caller: pres[0], callee: pres[1]}, res, next);
+    call({caller: pres[0], callee: pres[1][0]}, res, next);
   }, next);
+
 })
+.delete((req, res, next) => {
+  Device.findOne()
+  .where('id', req.get('caller'))
+  .then(caller => {
+    console.log(req.get('caller'), caller.token)
+    fcm.send({to: caller.token, notification: {
+      title: 'Dissad'
+    }})
+    .then(res.end.bind(res), next);
+  }, next);
+});
 
 function call(req, res, next) {
   if (!req.callee) {
     return res.status(404).end();
   }
-
-  // DEBUG: sleep, then send call
-  else if (req.callee.id == req.caller.id) {
-    setTimeout(() => {
-      fcm.send({
-        to: req.callee.token,
-        data: {loc: {
-          lon: req.caller.loc[0],
-          lat: req.caller.loc[1]
-        }}
-      });
-    }, 5000);
-    return res.end();
+  if (!req.caller) {
+    //return res.status(404).end();
+    // todo: do this?
+    req.caller = {id: 'unknown'};
   }
 
-  fcm.send({
-    to: req.callee.token,
-    data: {loc: {
+  // DEBUG: sleep, then send call
+  if (req.callee.id == req.caller.id) {
+    var data = {caller: req.caller.id};
+    setTimeout(() => fcm.send({to: req.caller.token, data}), 5000);
+    return res.end();
+  }
+  var data = {caller: req.caller.id};
+  if (req.caller.loc) {
+    data.loc = {
       lon: req.caller.loc[0],
       lat: req.caller.loc[1]
-    }}
-  }).then(res.end.bind(res), next);
+    };
+  }
+  fcm.send({to: req.callee.token, data})
+  .then(res.end.bind(res), next);
+}
+
+function end(req, res, next) {
+
 }
 
 app.listen(3000);
